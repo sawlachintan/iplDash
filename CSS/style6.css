@@ -1,0 +1,293 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: 'Montserrat';
+  font-weight: 500;
+}
+
+body {
+  background-color: #eee;
+}
+
+nav {
+  background: #f0f0f0;
+  height: 75px;
+  width: 100%;
+}
+
+nav label.head a {
+  color: #ff4081;
+  font-size: 35px;
+  font-weight: 700;
+  line-height: 75px;
+  padding: 0 40px;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+nav ul {
+  float: right;
+  margin-right: 20px;
+}
+
+nav ul li {
+  display: inline-block;
+  line-height: 75px;
+  margin: 0 5px;
+}
+
+nav ul li a {
+  color: #ff4081;
+  font-size: 17px;
+  font-weight: 600;
+  padding: 7px 13px;
+  border-radius: 25px;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+  background: #ffcdd2;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.container {
+  position: absolute;
+  top: 90px;
+  width: 100vw;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2.25fr 1fr 0.75fr;
+      grid-template-columns: 2.25fr 1fr 0.75fr;
+  -ms-grid-rows: 100px 37.5vh 37.5vh 65vh 100px;
+      grid-template-rows: 100px 37.5vh 37.5vh 65vh 100px;
+      grid-template-areas: "teamNames teamNames teamNames" "map winPer writeUp" "map lineChart writeUp" "teamTable teamTable teamTable" "footer footer footer";
+  overflow: auto;
+  gap: 20px;
+}
+
+#team-container {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: teamNames;
+}
+
+#team-container #team-name-text {
+  font-weight: 600;
+}
+
+#team-container #teams {
+  padding-top: 15px;
+}
+
+#team-container #teams button {
+  border: none;
+  width: 96px;
+  height: 50px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+#team-container #teams button:focus {
+  outline: 0;
+}
+
+#team-container #teams #csk {
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#ffcf18), to(#ff8818));
+  background-image: linear-gradient(to bottom right, #ffcf18, #ff8818);
+  color: black;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#team-container #teams #csk:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 25px 2px #e0e0e0;
+          box-shadow: 0px 0px 25px 2px #e0e0e0;
+  -webkit-filter: brightness(105%);
+          filter: brightness(105%);
+}
+
+#team-container #teams #csk:focus {
+  outline: 0;
+}
+
+#team-container #teams #mi {
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#2196f3), to(#1976d2));
+  background-image: linear-gradient(to bottom right, #2196f3, #1976d2);
+  color: black;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#team-container #teams #mi:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 25px 2px #e0e0e0;
+          box-shadow: 0px 0px 25px 2px #e0e0e0;
+  -webkit-filter: brightness(105%);
+          filter: brightness(105%);
+}
+
+#map-container {
+  border-radius: 25px;
+  -webkit-box-shadow: 0px 0px 25px 0.2px #e0e0e0;
+          box-shadow: 0px 0px 25px 0.2px #e0e0e0;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: map;
+}
+
+#map-container h3 {
+  position: relative;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  font-weight: 600;
+  border-bottom: 2px solid #212121;
+}
+
+#map-container #map {
+  height: 93%;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    fill-opacity: 0;
+    color: 0;
+  }
+  to {
+    fill-opacity: 0.5;
+    color: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    fill-opacity: 0;
+    color: 0;
+  }
+  to {
+    fill-opacity: 0.5;
+    color: 1;
+  }
+}
+
+.circle-transition {
+  -webkit-animation: 0.5s ease-out 0s 1 fadeIn;
+          animation: 0.5s ease-out 0s 1 fadeIn;
+}
+
+#win-per-container {
+  border-radius: 25px;
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: winPer;
+  -webkit-box-shadow: 0px 0px 25px 0.2px #e0e0e0;
+          box-shadow: 0px 0px 25px 0.2px #e0e0e0;
+}
+
+#win-per-container h3 {
+  position: relative;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  font-weight: 600;
+  border-bottom: 2px solid #212121;
+}
+
+#win-per-container #win-per {
+  position: relative;
+  top: 45px;
+  justify-items: center;
+}
+
+#win-per-container #win-per-text {
+  position: relative;
+  text-align: center;
+  font-weight: 700;
+  font-size: 20px;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+#line-chart-container {
+  border-radius: 25px;
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  grid-area: lineChart;
+  -webkit-box-shadow: 0px 0px 25px 0.2px #e0e0e0;
+          box-shadow: 0px 0px 25px 0.2px #e0e0e0;
+}
+
+#line-chart-container h3 {
+  position: relative;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  font-weight: 600;
+  border-bottom: 2px solid #212121;
+}
+
+#write-up-container {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 3;
+  grid-area: writeUp;
+  -webkit-box-shadow: 0px 0px 25px 0.2px #e0e0e0;
+          box-shadow: 0px 0px 25px 0.2px #e0e0e0;
+  border-radius: 25px;
+}
+
+#write-up-container h3 {
+  position: relative;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  font-weight: 600;
+  border-bottom: 2px solid #212121;
+}
+
+#table-container {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: teamTable;
+  -webkit-box-shadow: 0px 0px 25px 0.2px #e0e0e0;
+          box-shadow: 0px 0px 25px 0.2px #e0e0e0;
+  border-radius: 25px;
+}
+
+#table-container h3 {
+  position: relative;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  font-weight: 600;
+  border-bottom: 2px solid #212121;
+}
+
+footer {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: footer;
+  text-align: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  font-weight: 600;
+}
+/*# sourceMappingURL=style6.css.map */

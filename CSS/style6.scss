@@ -1,0 +1,254 @@
+$shadowEffect: 0px 0px 25px 0.2px #e0e0e0;
+$radiusBox: 25px;
+$cskColor: to bottom right,
+#ffcf18,
+#ff8818;
+$miColor:to bottom right,
+#2196f3,
+#1976d2;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Montserrat';
+    font-weight: 500;
+}
+
+body {
+    background-color: #eee;
+}
+
+nav {
+    background: #f0f0f0;
+    // box-shadow: 0px 0px 25px 0.02px #e0e0e0;
+    height: 75px;
+    width: 100%;
+}
+
+nav label.head a {
+    color: #ff4081;
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 75px;
+    padding: 0 40px;
+    text-align: center;
+    justify-content: center;
+}
+
+nav ul {
+    float: right;
+    margin-right: 20px;
+}
+
+nav ul li {
+    display: inline-block;
+    line-height: 75px;
+    margin: 0 5px;
+}
+
+nav ul li a {
+    color: #ff4081;
+    font-size: 17px;
+    font-weight: 600;
+    padding: 7px 13px;
+    border-radius: 25px;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+    background: #ffcdd2;
+    transition: 0.5s;
+}
+
+.container {
+    position: absolute;
+    top: 90px;
+    width: 100vw;
+    padding-left: 20px;
+    padding-right: 20px;
+    // box-shadow: $shadowEffect;
+    // border: 2px solid #000;
+    display: grid;
+    grid-template-columns: 2.25fr 1fr 0.75fr;
+    grid-template-rows: 100px 37.5vh 37.5vh 65vh 100px;
+    grid-template-areas: "teamNames teamNames teamNames""map winPer writeUp""map lineChart writeUp""teamTable teamTable teamTable""footer footer footer";
+    overflow: auto;
+    gap: 20px;
+}
+
+#team-container {
+    grid-area: teamNames;
+
+    #team-name-text {
+        font-weight: 600;
+    }
+
+    #teams {
+        padding-top: 15px;
+
+        button {
+            border: none;
+            width: 96px;
+            height: 50px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 20px;
+        }
+
+        button:focus {
+            outline: 0;
+        }
+
+        #csk {
+            background-image: linear-gradient($cskColor);
+            color: black;
+            transition: 0.3s;
+        }
+
+        #csk:hover {
+            cursor: pointer;
+            box-shadow: 0px 0px 25px 2px #e0e0e0;
+            filter: brightness(105%);
+        }
+
+        #csk:focus {
+            outline: 0;
+        }
+
+        #mi {
+            background-image: linear-gradient($miColor);
+            color: black;
+            transition: 0.3s;
+        }
+
+        #mi:hover {
+            cursor: pointer;
+            box-shadow: 0px 0px 25px 2px #e0e0e0;
+            filter: brightness(105%);
+        }
+
+    }
+}
+
+#map-container {
+    border-radius: $radiusBox;
+    box-shadow: $shadowEffect;
+    grid-area: map;
+
+    h3 {
+        position: relative;
+        padding-top: 10px;
+        padding-left: 20px;
+        padding-bottom: 10px;
+        font-weight: 600;
+        border-bottom: 2px solid #212121;
+    }
+
+    #map {
+        height: 93%;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        fill-opacity: 0;
+        color: 0;
+    }
+
+    to {
+        fill-opacity: 0.5;
+        color: 1;
+    }
+}
+
+.circle-transition {
+    animation: 0.5s ease-out 0s 1 fadeIn;
+}
+
+
+#win-per-container {
+    border-radius: $radiusBox;
+    grid-area: winPer;
+    box-shadow: $shadowEffect;
+
+    h3 {
+        position: relative;
+        padding-top: 10px;
+        padding-left: 20px;
+        padding-bottom: 10px;
+        font-weight: 600;
+        border-bottom: 2px solid #212121;
+    }
+
+    #win-per {
+        position: relative;
+        top: 45px;
+        justify-items: center;
+
+    }
+
+    #win-per-text {
+        position: relative;
+        text-align: center;
+        font-weight: 700;
+        font-size: 20px;
+        transition: all 0.5s ease;
+    }
+}
+
+#line-chart-container {
+    border-radius: $radiusBox;
+    grid-area: lineChart;
+    box-shadow: $shadowEffect;
+
+    h3 {
+        position: relative;
+        padding-top: 10px;
+        padding-left: 20px;
+        padding-bottom: 10px;
+        font-weight: 600;
+        border-bottom: 2px solid #212121;
+    }
+}
+
+#write-up-container {
+    grid-area: writeUp;
+    box-shadow: $shadowEffect;
+    border-radius: $radiusBox;
+
+    h3 {
+        position: relative;
+        padding-top: 10px;
+        padding-left: 20px;
+        padding-bottom: 10px;
+        font-weight: 600;
+        border-bottom: 2px solid #212121;
+    }
+}
+
+#table-container {
+    grid-area: teamTable;
+    box-shadow: $shadowEffect;
+    border-radius: $radiusBox;
+
+    h3 {
+        position: relative;
+        padding-top: 10px;
+        padding-left: 20px;
+        padding-bottom: 10px;
+        font-weight: 600;
+        border-bottom: 2px solid #212121;
+    }
+}
+
+footer {
+    grid-area: footer;
+    text-align: center;
+    align-self: center;
+    font-weight: 600;
+}
