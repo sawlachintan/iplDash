@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>IPL Dashboard</title>
     <link rel="stylesheet" href="./css/style6.css">
+    <link rel="shortcut icon" href="/Users/chintan/Desktop/logo4-01.ico" type="image/x-icon">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
@@ -34,49 +35,19 @@
             <h3 id="team-name-text">Team Names</h3>
             <div id="teams">
                 <!-- team names -->
-                <!-- <ul>
-                    <li><input type="checkbox" id="csk-check">
-                        <a href="#" id="csk">CSK</a>
-                    </li>
-                    <li><input type="checkbox" id="mi-check">
-                        <a href="#" id="mi">MI</a>
-                    </li>
-                    <li><input type="checkbox" id="rcb-check">
-                        <a href="#" id="rcb">RCB</a>
-                    </li>
-                    <li><input type="checkbox" id="delhi-check">
-                        <a href="#" id="delhi">DC</a>
-                    </li>
-                    <li><input type="checkbox" id="kkr-check">
-                        <a href="#" id="kkr">KKR</a>
-                    </li>
-                    <li><input type="checkbox" id="rr-check">
-                        <a href="#" id="rr">RR</a>
-                    </li>
-                    <li><input type="checkbox" id="kxip-check">
-                        <a href="#" id="kxip">KXIP</a>
-                    </li>
-                    <li><input type="checkbox" id="srh-check">
-                        <a href="#" id="srh">SRH</a>
-                    </li>
-                    <li><input type="checkbox" id="gl-check">
-                        <a href="#" id="gl">GL</a>
-                    </li>
-                    <li><input type="checkbox" id="ktk-check">
-                        <a href="#" id="ktk">KTK</a>
-                    </li>
-                    <li><input type="checkbox" id="deccan-check">
-                        <a href="#" id="deccan">DC</a>
-                    </li>
-                    <li><input type="checkbox" id="rps-check">
-                        <a href="#" id="rps">RPS</a>
-                    </li>
-                    <li><input type="checkbox" id="pwi-check">
-                        <a href="#" id="pwi">PWI</a>
-                    </li>
-                </ul> -->
                 <button id="csk">CSK</button>
                 <button id="mi">MI</button>
+                <button id="rcb">RCB</button>
+                <button id="kkr">KKR</button>
+                <button id="delhi">DC</button>
+                <button id="kxip">KXIP</button>
+                <button id="rr">RR</button>
+                <button id="srh">SRH</button>
+                <button id="ktk">KTK</button>
+                <button id="gl">GL</button>
+                <button id="rps">RPS</button>
+                <button id="deccan">DC</button>
+                <button id="pwi">PWI</button>
             </div>
         </div>
         <div id="map-container">
@@ -85,14 +56,16 @@
         </div>
         <div id="win-per-container">
             <h3 id="win-per-title">Win Percentage</h3>
-            <div id="win-per"><canvas id="myChart" width="250px" height="100px"></canvas></div>
+            <div id="win-per"><canvas id="myChart" width="275px" height="125px"></canvas></div>
             <div>
                 <h4 id="win-per-text"></h4>
             </div>
         </div>
         <div id="line-chart-container">
-            <h3 id="line-chart-text">Line Chart</h3>
-            <div id="line-chart"></div>
+            <h3 id="line-chart-text">Average Runs per Season</h3>
+            <div id="lineChart">
+                <canvas id="line-chart" width="400" height="250"></canvas>
+            </div>
         </div>
         <div id="write-up-container">
             <h3 id="write-up-text">Write Up</h3>
@@ -106,7 +79,6 @@
     </div>
     <script src="./node_modules/chart.js/dist/Chart.js"></script>
     <script src="./js/winpercentage.js"></script>
-    <script src="./js/script.js"></script>
 </body>
 
 </html>

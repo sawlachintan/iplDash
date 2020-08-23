@@ -20,23 +20,9 @@ const runsData = {
 
 const path = { "team.name": ["Chennai Super Kings", "Deccan Chargers", "Delhi Capitals", "Gujarat Lions", "Kings XI Punjab", "Kochi Tuskers Kerala", "Kolkata Knight Riders", "Mumbai Indians", "Pune Warriors India", "Rajasthan Royals", "Rising Pune Supergiants", "Royal Challengers Bangalore", "Sunrisers Hyderabad"], "alt.name": ["Chennai Super Kings", "Deccan Chargers", "Delhi Daredevils", "Gujarat Lions", "Kings XI Punjab", "Kochi Tuskers Kerala", "Kolkata Knight Riders", "Mumbai Indians", "Pune Warriors", "Rajasthan Royals", "Rising Pune Supergiant", "Royal Challengers Bangalore", "Sunrisers Hyderabad"], "abb": ["CSK", "DC", "DC", "GL", "KXIP", "KTK", "KKR", "MI", "PWI", "RR", "RPS", "RCB", "SRH"], "alt.abb": ["CSK", "DC", "DD", "GL", "KXIP", "KTK", "KKR", "MI", "PWI", "RR", "RPS", "RCB", "SRH"], "win_count": [100, 29, 77, 13, 82, 6, 92, 109, 12, 75, 15, 84, 58], "match_count": [164, 75, 177, 30, 176, 14, 178, 187, 46, 147, 30, 180, 108], "winPer": [60.98, 38.67, 43.5, 43.33, 46.59, 42.86, 51.69, 58.29, 26.09, 51.02, 50, 46.67, 53.7] };
 
+const lineChart = { "team.name": ["Chennai Super Kings", "Deccan Chargers", "Delhi Capitals", "Gujarat Lions", "Kings XI Punjab", "Kochi Tuskers Kerala", "Kolkata Knight Riders", "Mumbai Indians", "Pune Warriors India", "Rajasthan Royals", "Rising Pune Supergiants", "Royal Challengers Bangalore", "Sunrisers Hyderabad"], "alt.name": ["Chennai Super Kings", "Deccan Chargers", "Delhi Daredevils", "Gujarat Lions", "Kings XI Punjab", "Kochi Tuskers Kerala", "Kolkata Knight Riders", "Mumbai Indians", "Pune Warriors", "Rajasthan Royals", "Rising Pune Supergiant", "Royal Challengers Bangalore", "Sunrisers Hyderabad"], "abb": ["CSK", "DC", "DC", "GL", "KXIP", "KTK", "KKR", "MI", "PWI", "RR", "RPS", "RCB", "SRH"], "alt.abb": ["CSK", "DC", "DD", "GL", "KXIP", "KTK", "KKR", "MI", "PWI", "RR", "RPS", "RCB", "SRH"], "2008": [157.5, 159.21, 151.29, NaN, 164.27, NaN, 149.38, 148.57, NaN, 162.56, NaN, 141.64, NaN], "2009": [159.36, 150.5, 142.07, NaN, 137.71, NaN, 135.15, 145.92, NaN, 129.85, NaN, 142.5, NaN], "2010": [162.19, 148.38, 153.93, NaN, 162.71, NaN, 153.14, 171.12, NaN, 155.64, NaN, 150.06, NaN], "2011": [160, 152.86, 149.07, NaN, 158.86, 135.79, 134.87, 143, 126.79, 129.77, NaN, 154.31, NaN], "2012": [157.28, 154.13, 146.94, NaN, 149.38, NaN, 147.29, 144.82, 145.06, 157.25, NaN, 164.8, NaN], "2013": [154.33, NaN, 139.62, NaN, 151.75, NaN, 143.12, 156.58, 141.38, 150.28, NaN, 160.69, 135.18], "2014": [165.62, NaN, 148.64, NaN, 175.71, NaN, 155.5, 156.87, NaN, 153.93, NaN, 149.5, 150.14], "2015": [161.49, NaN, 153.48, NaN, 145, NaN, 158.81, 170.94, NaN, 153.9, NaN, 144.73, 157.93], "2016": [NaN, NaN, 150.29, 153.12, 152.43, NaN, 150.87, 156.71, NaN, NaN, 147.36, 186.31, 157.24], "2017": [NaN, NaN, 158.5, 171.86, 157.64, NaN, 155.25, 164.06, NaN, NaN, 154.38, 141.92, 167.79], "2018": [175.56, NaN, 167.36, NaN, 157.86, NaN, 172.44, 170, NaN, 157.13, NaN, 165.86, 160.06], "2019": [145.47, NaN, 157.44, NaN, 173.5, NaN, 176.14, 166.31, NaN, 156.71, NaN, 157.71, 163.33] }
+
 console.log(path.winPer);
-
-function teamNameIndex(name) {
-    let num = 100;
-    for (let i = 0; i < path['team.name'].length; i++) {
-        const element = path["team.name"][i];
-        if (element == name) {
-            num = i;
-            return num;
-        }
-
-    }
-};
-
-console.log(teamNameIndex('Rising Pune Supergiants'));
-
-
 
 // team colors
 var cskCol = '#ffc107';
@@ -54,6 +40,8 @@ var rpsCol = '#e91e63';
 var pwiCol = '#00bcd4';
 
 var donut;
+var circles;
+var lineCharts;
 
 function win_gauge(num, color) {
     var loss = 100 - path.winPer[num];
@@ -67,10 +55,10 @@ function win_gauge(num, color) {
                 data: [path.winPer[num], loss],
                 backgroundColor: [
                     color,
-                    '#e0e0e0'
+                    '#424242'
                 ],
                 hoverBackgroundColor: [color,
-                    '#e0e0e0'
+                    '#424242'
                 ],
                 borderWidth: 0,
 
@@ -83,7 +71,70 @@ function win_gauge(num, color) {
             circumference: Math.PI,
             legend: { display: false },
             tooltips: { enabled: false },
-            hover: { mode: null },
+            hover: { mode: NaN },
+            responsive: true,
+            maintainAspectRatio: false,
+        }
+    });
+
+    return myChart;
+}
+
+function lineChartCreate(lineChartNum, lineChartColor) {
+    var ctx = document.getElementById('line-chart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019'],
+            datasets: [{
+                label: 'Average Runs per season',
+                data: [lineChart[2008][lineChartNum], lineChart[2009][lineChartNum], lineChart[2010][lineChartNum], lineChart[2011][lineChartNum], lineChart[2012][lineChartNum], lineChart[2013][lineChartNum], lineChart[2014][lineChartNum], lineChart[2015][lineChartNum], lineChart[2016][lineChartNum], lineChart[2017][lineChartNum], lineChart[2018][lineChartNum], lineChart[2019][lineChartNum]],
+                pointBackgroundColor: [
+                    lineChartColor, lineChartColor, lineChartColor,
+                    lineChartColor, lineChartColor, lineChartColor,
+                    lineChartColor, lineChartColor, lineChartColor,
+                    lineChartColor, lineChartColor, lineChartColor
+                ],
+                pointBorderColor: [
+                    lineChartColor, lineChartColor, lineChartColor,
+                    lineChartColor, lineChartColor, lineChartColor,
+                    lineChartColor, lineChartColor, lineChartColor,
+                    lineChartColor, lineChartColor, lineChartColor
+
+                ],
+                borderColor: lineChartColor,
+                backgroundColor: lineChartColor,
+                fill: false,
+                borderWidth: 4
+            }]
+        },
+        options: {
+            legend: { display: false },
+            spanGaps: false,
+            animation: { easing: 'easeOutQuad', duration: 750 },
+            scales: {
+                xAxes: [{
+                    gridLines: {
+                        display: true
+                    },
+                    ticks: {
+
+                        fontColor: '#eee'
+                    }
+                }],
+
+                yAxes: [{
+                    gridLines: {
+                        display: true
+                    },
+                    ticks: {
+                        beginAtZero: true,
+                        fontColor: '#eee',
+                        max: 200,
+                        stepSize: 40
+                    }
+                }]
+            },
             responsive: true,
             maintainAspectRatio: false,
         }
@@ -100,12 +151,12 @@ const tileUrl = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png';
 
 const darkTile = 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png';
 
-const tiles = L.tileLayer(tileUrl, { attribution });
+const tiles = L.tileLayer(darkTile, { attribution });
 
 // function for main visualization
 
 
-var circles;
+
 var bubble;
 var abuDhabi;
 var ahmedabad;
@@ -193,6 +244,11 @@ document.getElementById('csk').onclick = function () {
         donut.destroy();
     }
     donut = win_gauge(0, cskCol);
+    if (lineCharts != undefined) {
+        lineCharts.destroy();
+        console.log(lineCharts);
+    }
+    lineCharts = lineChartCreate(0, cskCol);
     document.getElementById('win-per-text').innerHTML = (path.winPer[0] + "%");
     if (circles != undefined) {
         circles.remove();
@@ -205,9 +261,189 @@ document.getElementById('mi').onclick = function () {
         donut.destroy();
     }
     donut = win_gauge(7, miCol);
+    if (lineCharts != undefined) {
+        lineCharts.destroy();
+    }
+    console.log(lineCharts);
+    lineCharts = lineChartCreate(7, miCol);
     document.getElementById('win-per-text').innerHTML = (path.winPer[7] + "%");
     if (circles != undefined) {
         circles.remove();
     }
     circles = teamChosen("mi", miCol);
+}
+
+document.getElementById('rcb').onclick = function () {
+    if (donut != undefined) {
+        donut.destroy();
+    }
+    donut = win_gauge(11, rcbCol);
+    if (lineCharts != undefined) {
+        lineCharts.destroy();
+    }
+    lineCharts = lineChartCreate(11, rcbCol);
+    document.getElementById('win-per-text').innerHTML = (path.winPer[11] + "%");
+    if (circles != undefined) {
+        circles.remove();
+    }
+    circles = teamChosen("rcb", rcbCol);
+}
+document.getElementById('kkr').onclick = function () {
+    if (donut != undefined) {
+        donut.destroy();
+    }
+    donut = win_gauge(6, kkrCol);
+    if (lineCharts != undefined) {
+        lineCharts.destroy();
+    }
+    lineCharts = lineChartCreate(6, kkrCol);
+    document.getElementById('win-per-text').innerHTML = (path.winPer[6] + "%");
+    if (circles != undefined) {
+        circles.remove();
+    }
+    circles = teamChosen("kkr", kkrCol);
+}
+
+document.getElementById('delhi').onclick = function () {
+    if (donut != undefined) {
+        donut.destroy();
+    }
+    donut = win_gauge(2, delhiCol);
+    if (lineCharts != undefined) {
+        lineCharts.destroy();
+    }
+    lineCharts = lineChartCreate(2, delhiCol);
+    document.getElementById('win-per-text').innerHTML = (path.winPer[2] + "%");
+    if (circles != undefined) {
+        circles.remove();
+    }
+    circles = teamChosen("delhi", delhiCol);
+}
+
+document.getElementById('kxip').onclick = function () {
+    if (donut != undefined) {
+        donut.destroy();
+    }
+    donut = win_gauge(4, kxipCol);
+    if (lineCharts != undefined) {
+        lineCharts.destroy();
+    }
+    lineCharts = lineChartCreate(4, kxipCol);
+    document.getElementById('win-per-text').innerHTML = (path.winPer[4] + "%");
+    if (circles != undefined) {
+        circles.remove();
+    }
+    circles = teamChosen("kxip", kxipCol);
+}
+
+document.getElementById('rr').onclick = function () {
+    if (donut != undefined) {
+        donut.destroy();
+    }
+    donut = win_gauge(9, rrCol);
+    if (lineCharts != undefined) {
+        lineCharts.destroy();
+    }
+    lineCharts = lineChartCreate(9, rrCol);
+    document.getElementById('win-per-text').innerHTML = (path.winPer[9] + "%");
+    if (circles != undefined) {
+        circles.remove();
+    }
+    circles = teamChosen("rr", rrCol);
+}
+
+document.getElementById('srh').onclick = function () {
+    if (donut != undefined) {
+        donut.destroy();
+    }
+    donut = win_gauge(12, srhCol);
+    if (lineCharts != undefined) {
+        lineCharts.destroy();
+    }
+    lineCharts = lineChartCreate(12, srhCol);
+    document.getElementById('win-per-text').innerHTML = (path.winPer[12] + "%");
+    if (circles != undefined) {
+        circles.remove();
+    }
+    circles = teamChosen("srh", srhCol);
+}
+
+document.getElementById('ktk').onclick = function () {
+    if (donut != undefined) {
+        donut.destroy();
+    }
+    donut = win_gauge(5, ktkCol);
+    if (lineCharts != undefined) {
+        lineCharts.destroy();
+    }
+    lineCharts = lineChartCreate(5, ktkCol);
+    document.getElementById('win-per-text').innerHTML = (path.winPer[5] + "%");
+    if (circles != undefined) {
+        circles.remove();
+    }
+    circles = teamChosen("ktk", ktkCol);
+}
+
+document.getElementById('gl').onclick = function () {
+    if (donut != undefined) {
+        donut.destroy();
+    }
+    donut = win_gauge(3, glCol);
+    if (lineCharts != undefined) {
+        lineCharts.destroy();
+    }
+    lineCharts = lineChartCreate(3, glCol);
+    document.getElementById('win-per-text').innerHTML = (path.winPer[3] + "%");
+    if (circles != undefined) {
+        circles.remove();
+    }
+    circles = teamChosen("gl", glCol);
+}
+
+document.getElementById('rps').onclick = function () {
+    if (donut != undefined) {
+        donut.destroy();
+    }
+    donut = win_gauge(10, rpsCol);
+    if (lineCharts != undefined) {
+        lineCharts.destroy();
+    }
+    lineCharts = lineChartCreate(10, rpsCol);
+    document.getElementById('win-per-text').innerHTML = (path.winPer[10] + "%");
+    if (circles != undefined) {
+        circles.remove();
+    }
+    circles = teamChosen("rps", rpsCol);
+}
+
+document.getElementById('deccan').onclick = function () {
+    if (donut != undefined) {
+        donut.destroy();
+    }
+    donut = win_gauge(1, deccanCol);
+    if (lineCharts != undefined) {
+        lineCharts.destroy();
+    }
+    lineCharts = lineChartCreate(1, deccanCol);
+    document.getElementById('win-per-text').innerHTML = (path.winPer[1] + "%");
+    if (circles != undefined) {
+        circles.remove();
+    }
+    circles = teamChosen("deccan", deccanCol);
+}
+
+document.getElementById('pwi').onclick = function () {
+    if (donut != undefined) {
+        donut.destroy();
+    }
+    donut = win_gauge(8, pwiCol);
+    if (lineCharts != undefined) {
+        lineCharts.destroy();
+    }
+    lineCharts = lineChartCreate(8, pwiCol);
+    document.getElementById('win-per-text').innerHTML = (path.winPer[8] + "%");
+    if (circles != undefined) {
+        circles.remove();
+    }
+    circles = teamChosen("pwi", pwiCol);
 }

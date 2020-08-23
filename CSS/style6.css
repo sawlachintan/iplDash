@@ -10,11 +10,11 @@
 }
 
 body {
-  background-color: #eee;
+  background-color: #212121;
+  color: #eee;
 }
 
 nav {
-  background: #f0f0f0;
   height: 75px;
   width: 100%;
 }
@@ -24,7 +24,7 @@ nav label.head a {
   font-size: 35px;
   font-weight: 700;
   line-height: 75px;
-  padding: 0 40px;
+  padding: 0 20px;
   text-align: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -69,7 +69,7 @@ nav ul li a:hover {
       grid-template-columns: 2.25fr 1fr 0.75fr;
   -ms-grid-rows: 100px 37.5vh 37.5vh 65vh 100px;
       grid-template-rows: 100px 37.5vh 37.5vh 65vh 100px;
-      grid-template-areas: "teamNames teamNames teamNames" "map winPer writeUp" "map lineChart writeUp" "teamTable teamTable teamTable" "footer footer footer";
+      grid-template-areas: "teamNames teamNames teamNames" "map winPer writeUp" "map lineChart lineChart" "teamTable teamTable teamTable" "footer footer footer";
   overflow: auto;
   gap: 20px;
 }
@@ -86,16 +86,26 @@ nav ul li a:hover {
 }
 
 #team-container #teams {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: auto;
   padding-top: 15px;
 }
 
 #team-container #teams button {
-  border: none;
   width: 96px;
   height: 50px;
   border-radius: 30px;
   font-weight: 600;
   font-size: 20px;
+  color: #eee;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 #team-container #teams button:focus {
@@ -103,45 +113,249 @@ nav ul li a:hover {
 }
 
 #team-container #teams #csk {
-  background-image: -webkit-gradient(linear, left top, right bottom, from(#ffcf18), to(#ff8818));
-  background-image: linear-gradient(to bottom right, #ffcf18, #ff8818);
-  color: black;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
+  position: relative;
+  border: #ffc107 5px solid;
+  background: none;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 #team-container #teams #csk:hover {
   cursor: pointer;
-  -webkit-box-shadow: 0px 0px 25px 2px #e0e0e0;
-          box-shadow: 0px 0px 25px 2px #e0e0e0;
-  -webkit-filter: brightness(105%);
-          filter: brightness(105%);
+  -webkit-box-shadow: 0px 0px 25px 2px #111;
+          box-shadow: 0px 0px 25px 2px #111;
+  border: none;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#ffcf18), to(#ffb300));
+  background-image: linear-gradient(to bottom right, #ffcf18, #ffb300);
+  -webkit-transition: 0.3s ease-in;
+  transition: 0.3s ease-in;
 }
 
-#team-container #teams #csk:focus {
-  outline: 0;
+#team-container #teams #csk .active {
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#ffcf18), to(#ffb300));
+  background-image: linear-gradient(to bottom right, #ffcf18, #ffb300);
 }
 
 #team-container #teams #mi {
-  background-image: -webkit-gradient(linear, left top, right bottom, from(#2196f3), to(#1976d2));
-  background-image: linear-gradient(to bottom right, #2196f3, #1976d2);
-  color: black;
+  position: relative;
+  left: 10px;
+  border: #2196f3 5px solid;
+  background: none;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
 #team-container #teams #mi:hover {
   cursor: pointer;
-  -webkit-box-shadow: 0px 0px 25px 2px #e0e0e0;
-          box-shadow: 0px 0px 25px 2px #e0e0e0;
-  -webkit-filter: brightness(105%);
-          filter: brightness(105%);
+  border: none;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#2196f3), to(#1976d2));
+  background-image: linear-gradient(to bottom right, #2196f3, #1976d2);
+  -webkit-box-shadow: 0px 0px 25px 2px #111;
+          box-shadow: 0px 0px 25px 2px #111;
+}
+
+#team-container #teams #rcb {
+  position: relative;
+  left: 20px;
+  border: #d32f2f 5px solid;
+  background: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#team-container #teams #rcb:hover {
+  cursor: pointer;
+  border: none;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#d32f2f), to(#d32f2f));
+  background-image: linear-gradient(to bottom right, #d32f2f, #d32f2f);
+  -webkit-box-shadow: 0px 0px 25px 2px #111;
+          box-shadow: 0px 0px 25px 2px #111;
+}
+
+#team-container #teams #kkr {
+  position: relative;
+  left: 30px;
+  border: #673ab7 5px solid;
+  background: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#team-container #teams #kkr:hover {
+  cursor: pointer;
+  border: none;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#673ab7), to(#673ab7));
+  background-image: linear-gradient(to bottom right, #673ab7, #673ab7);
+  -webkit-box-shadow: 0px 0px 25px 2px #111;
+          box-shadow: 0px 0px 25px 2px #111;
+}
+
+#team-container #teams #delhi {
+  position: relative;
+  left: 40px;
+  border: #536dfe 5px solid;
+  background: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#team-container #teams #delhi:hover {
+  cursor: pointer;
+  border: none;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#3d5afe), to(#3d5afe));
+  background-image: linear-gradient(to bottom right, #3d5afe, #3d5afe);
+  -webkit-box-shadow: 0px 0px 25px 2px #111;
+          box-shadow: 0px 0px 25px 2px #111;
+}
+
+#team-container #teams #kxip {
+  position: relative;
+  left: 50px;
+  border: #c62828 5px solid;
+  background: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#team-container #teams #kxip:hover {
+  cursor: pointer;
+  border: none;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#ef5350), to(#e57373));
+  background-image: linear-gradient(to bottom right, #ef5350, #e57373);
+  -webkit-box-shadow: 0px 0px 25px 2px #111;
+          box-shadow: 0px 0px 25px 2px #111;
+}
+
+#team-container #teams #rr {
+  position: relative;
+  left: 60px;
+  border: #f06292 5px solid;
+  background: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#team-container #teams #rr:hover {
+  cursor: pointer;
+  border: none;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#f06292), to(#ec407a));
+  background-image: linear-gradient(to bottom right, #f06292, #ec407a);
+  -webkit-box-shadow: 0px 0px 25px 2px #111;
+          box-shadow: 0px 0px 25px 2px #111;
+}
+
+#team-container #teams #srh {
+  position: relative;
+  left: 70px;
+  border: #ff5722 5px solid;
+  background: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#team-container #teams #srh:hover {
+  cursor: pointer;
+  border: none;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#ff5722), to(#f4511e));
+  background-image: linear-gradient(to bottom right, #ff5722, #f4511e);
+  -webkit-box-shadow: 0px 0px 25px 2px #111;
+          box-shadow: 0px 0px 25px 2px #111;
+}
+
+#team-container #teams #ktk {
+  position: relative;
+  left: 80px;
+  border: #ab47bc 5px solid;
+  background: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#team-container #teams #ktk:hover {
+  cursor: pointer;
+  border: none;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#ab47bc), to(#9c27b0));
+  background-image: linear-gradient(to bottom right, #ab47bc, #9c27b0);
+  -webkit-box-shadow: 0px 0px 25px 2px #111;
+          box-shadow: 0px 0px 25px 2px #111;
+}
+
+#team-container #teams #gl {
+  position: relative;
+  left: 90px;
+  border: #f57c00 5px solid;
+  background: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#team-container #teams #gl:hover {
+  cursor: pointer;
+  border: none;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#f57c00), to(#ef6c00));
+  background-image: linear-gradient(to bottom right, #f57c00, #ef6c00);
+  -webkit-box-shadow: 0px 0px 25px 2px #111;
+          box-shadow: 0px 0px 25px 2px #111;
+}
+
+#team-container #teams #rps {
+  position: relative;
+  left: 100px;
+  border: #d81b60 5px solid;
+  background: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#team-container #teams #rps:hover {
+  cursor: pointer;
+  border: none;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#d81b60), to(#8e24aa));
+  background-image: linear-gradient(to bottom right, #d81b60, #8e24aa);
+  -webkit-box-shadow: 0px 0px 25px 2px #111;
+          box-shadow: 0px 0px 25px 2px #111;
+}
+
+#team-container #teams #deccan {
+  position: relative;
+  left: 110px;
+  border: #607d8b 5px solid;
+  background: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#team-container #teams #deccan:hover {
+  cursor: pointer;
+  border: none;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#607d8b), to(#546e7a));
+  background-image: linear-gradient(to bottom right, #607d8b, #546e7a);
+  -webkit-box-shadow: 0px 0px 25px 2px #111;
+          box-shadow: 0px 0px 25px 2px #111;
+}
+
+#team-container #teams #pwi {
+  position: relative;
+  left: 120px;
+  border: #00bcd4 5px solid;
+  background: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+#team-container #teams #pwi:hover {
+  cursor: pointer;
+  border: none;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#00bcd4), to(#00acc1));
+  background-image: linear-gradient(to bottom right, #00bcd4, #00acc1);
+  -webkit-box-shadow: 0px 0px 25px 2px #111;
+          box-shadow: 0px 0px 25px 2px #111;
 }
 
 #map-container {
   border-radius: 25px;
-  -webkit-box-shadow: 0px 0px 25px 0.2px #e0e0e0;
-          box-shadow: 0px 0px 25px 0.2px #e0e0e0;
+  -webkit-box-shadow: 0px 0px 25px 0.2px #111;
+          box-shadow: 0px 0px 25px 0.2px #111;
   -ms-grid-row: 2;
   -ms-grid-row-span: 2;
   -ms-grid-column: 1;
@@ -154,11 +368,11 @@ nav ul li a:hover {
   padding-left: 20px;
   padding-bottom: 10px;
   font-weight: 600;
-  border-bottom: 2px solid #212121;
+  border-bottom: 2px solid #9e9e9e;
 }
 
 #map-container #map {
-  height: 93%;
+  height: 92.75%;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
 }
@@ -195,8 +409,8 @@ nav ul li a:hover {
   -ms-grid-row: 2;
   -ms-grid-column: 2;
   grid-area: winPer;
-  -webkit-box-shadow: 0px 0px 25px 0.2px #e0e0e0;
-          box-shadow: 0px 0px 25px 0.2px #e0e0e0;
+  -webkit-box-shadow: 0px 0px 25px 0.2px #111;
+          box-shadow: 0px 0px 25px 0.2px #111;
 }
 
 #win-per-container h3 {
@@ -205,7 +419,7 @@ nav ul li a:hover {
   padding-left: 20px;
   padding-bottom: 10px;
   font-weight: 600;
-  border-bottom: 2px solid #212121;
+  border-bottom: 2px solid #eee;
 }
 
 #win-per-container #win-per {
@@ -218,7 +432,7 @@ nav ul li a:hover {
   position: relative;
   text-align: center;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 25px;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
@@ -227,27 +441,35 @@ nav ul li a:hover {
   border-radius: 25px;
   -ms-grid-row: 3;
   -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
   grid-area: lineChart;
-  -webkit-box-shadow: 0px 0px 25px 0.2px #e0e0e0;
-          box-shadow: 0px 0px 25px 0.2px #e0e0e0;
+  -webkit-box-shadow: 0px 0px 25px 0.2px #111;
+          box-shadow: 0px 0px 25px 0.2px #111;
 }
 
 #line-chart-container h3 {
   position: relative;
   padding-top: 10px;
   padding-left: 20px;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
   font-weight: 600;
-  border-bottom: 2px solid #212121;
+  border-bottom: 2px solid #eee;
+}
+
+#line-chart-container #line-chart {
+  position: relative;
+  bottom: 7px;
+  padding-top: 15px;
+  padding-left: 15px;
+  max-width: 575px;
 }
 
 #write-up-container {
   -ms-grid-row: 2;
-  -ms-grid-row-span: 2;
   -ms-grid-column: 3;
   grid-area: writeUp;
-  -webkit-box-shadow: 0px 0px 25px 0.2px #e0e0e0;
-          box-shadow: 0px 0px 25px 0.2px #e0e0e0;
+  -webkit-box-shadow: 0px 0px 25px 0.2px #111;
+          box-shadow: 0px 0px 25px 0.2px #111;
   border-radius: 25px;
 }
 
@@ -257,7 +479,7 @@ nav ul li a:hover {
   padding-left: 20px;
   padding-bottom: 10px;
   font-weight: 600;
-  border-bottom: 2px solid #212121;
+  border-bottom: 2px solid #eee;
 }
 
 #table-container {
@@ -265,8 +487,8 @@ nav ul li a:hover {
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: teamTable;
-  -webkit-box-shadow: 0px 0px 25px 0.2px #e0e0e0;
-          box-shadow: 0px 0px 25px 0.2px #e0e0e0;
+  -webkit-box-shadow: 0px 0px 25px 0.2px #111;
+          box-shadow: 0px 0px 25px 0.2px #111;
   border-radius: 25px;
 }
 
@@ -276,7 +498,7 @@ nav ul li a:hover {
   padding-left: 20px;
   padding-bottom: 10px;
   font-weight: 600;
-  border-bottom: 2px solid #212121;
+  border-bottom: 2px solid #eee;
 }
 
 footer {
