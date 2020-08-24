@@ -1,0 +1,111 @@
+        /* :root {} */
+        
+        html {
+            font-family: 'Montserrat';
+            font-weight: 600;
+        }
+        
+        body {
+            display: grid;
+            height: 100vh;
+            grid-template-columns: 0.5fr 1.5fr 0.8fr 0.8fr;
+            grid-template-rows: 100px 325px 300px 200px 500px 100px;
+            grid-template-areas: "sidebar header header header" "sidebar teamname teamname writeUp" "sidebar map winPer writeUp" "sidebar map dummy writeUp" "sidebar table table table" "footer footer footer footer";
+            gap: 25px;
+            overflow: auto;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        
+        header {
+            border-color: black;
+            border-style: solid;
+            grid-area: header;
+            border-radius: 25px;
+            text-align: center;
+            background-attachment: fixed;
+        }
+        
+        #sidebar {
+            border-color: black;
+            border-style: solid;
+            grid-area: sidebar;
+            border-radius: 25px;
+            text-align: center;
+            top: 0;
+            left: 0;
+        }
+        
+        main {
+            grid-area: teamname;
+            border-color: black;
+            border-style: solid;
+            border-radius: 25px;
+            text-align: center;
+            /* box-shadow: 0px 0px 19px 2px rgba(0, 0, 0, 0.5); */
+        }
+        
+        #map {
+            border-color: black;
+            border-style: solid;
+            grid-area: map;
+            border-radius: 25px;
+            text-align: center;
+        }
+        
+        #winPer {
+            border-color: black;
+            border-style: solid;
+            grid-area: winPer;
+            border-radius: 25px;
+            text-align: center;
+        }
+        
+        #dummy {
+            border-color: black;
+            border-style: solid;
+            grid-area: dummy;
+            border-radius: 25px;
+            text-align: center;
+        }
+        
+        #writeUp {
+            border-color: black;
+            border-style: solid;
+            grid-area: writeUp;
+            border-radius: 25px;
+            text-align: center;
+        }
+        
+        #table {
+            border-color: black;
+            border-style: solid;
+            grid-area: table;
+            border-radius: 25px;
+            text-align: center;
+        }
+        
+        footer {
+            border-color: black;
+            border-style: solid;
+            grid-area: footer;
+            border-radius: 25px;
+            text-align: center;
+            row-gap: -5px;
+        }
+        /* h1 {
+    box-shadow: 0px 0px 30px 5px rgba(0, 0, 0, 0.5);
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 30px;
+    background-image: radial-gradient(#eeeeee, #fafafa);
+    color: #03a9f4;
+    height: 400px;
+    width: 500px;
+    border-radius: 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+} */
