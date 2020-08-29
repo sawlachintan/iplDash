@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IPL Dashboard</title>
+    <meta name="keywords"
+        content="IPL, Dashboard, MS Dhoni, Sachin Tendulkar, Indian Premier League, BCCI, Rohit Sharma, Virat Kohli, CSK, 2020, UAE, IPL 2020, data viz, Data Visualization">
+    <meta name="description" content="Vizualizing every IPL Team's performance">
     <link rel="stylesheet" href="./css/style6.css">
     <link rel="shortcut icon" href="/Users/chintan/Desktop/logo4-01.ico" type="image/x-icon">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
@@ -27,7 +30,12 @@
             <li><a href="./index6.html" class="active">Home</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Contact</a></li>
-            <li><button id="dark"><i class="fa fa-moon"></i></button></li>
+            <li>
+                <button onclick="darkmode()" id="dark-mode-button">
+                    <i class="fa fa-moon" id="moon"></i>
+                    <i class="fa fa-sun" id="sun"></i>
+                </button>
+            </li>
         </ul>
     </nav>
     <div class="container">
@@ -35,8 +43,8 @@
             <h3 id="team-name-text">Team Names</h3>
             <div id="teams">
                 <!-- team names -->
-                <button id="csk">CSK</button>
-                <button id="mi">MI</button>
+                <button id="csk" class="">CSK</button>
+                <button id="mi" class="">MI</button>
                 <button id="rcb">RCB</button>
                 <button id="kkr">KKR</button>
                 <button id="delhi">DC</button>

@@ -38,47 +38,17 @@ var ktkCol = '#632B72';
 var glCol = '#E04F16';
 var rpsCol = '#e91e63';
 var pwiCol = '#00bcd4';
+var winPerColor = '#e0e0e0';
 
 var donut;
 var circles;
 var lineCharts;
 
-function win_gauge(num, color) {
-    var loss = 100 - path.winPer[num];
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-            labels: ['Win', 'Loss'],
-            datasets: [{
-                label: 'Win Percentage',
-                data: [path.winPer[num], loss],
-                backgroundColor: [
-                    color,
-                    '#424242'
-                ],
-                hoverBackgroundColor: [color,
-                    '#424242'
-                ],
-                borderWidth: 0,
 
-            }]
-        },
-        options: {
-            animation: { easing: 'easeOutQuad', duration: 700 },
-            cutoutPercentage: 80,
-            rotation: Math.PI,
-            circumference: Math.PI,
-            legend: { display: false },
-            tooltips: { enabled: false },
-            hover: { mode: NaN },
-            responsive: true,
-            maintainAspectRatio: false,
-        }
-    });
 
-    return myChart;
-}
+
+
+
 
 function lineChartCreate(lineChartNum, lineChartColor) {
     var ctx = document.getElementById('line-chart').getContext('2d');
@@ -149,9 +119,70 @@ const attribution = '&copy; <a href="https://www.openstreetmap.org/copyright">Op
 
 const tileUrl = 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png';
 
-const darkTile = 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png';
+const darkUrl = 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png';
 
-const tiles = L.tileLayer(darkTile, { attribution });
+var lightTile = L.tileLayer(tileUrl, { attribution });
+var darkTile = L.tileLayer(darkUrl, { attribution });
+var checkMode = 0;
+
+lightTile.addTo(map);
+var check = 'light';
+function darkmode() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+    if (element.className != "dark-mode") {
+        if (check == 'dark') {
+            darkTile.remove();
+            lightTile.addTo(map);
+            winPerColor = '#e0e0e0';
+            check = 'light';
+        }
+    } else {
+        if (check == 'light') {
+            lightTile.remove();
+            darkTile.addTo(map);
+            winPerColor = '#424242';
+            check = 'dark';
+        }
+    }
+}
+
+function win_gauge(num, color) {
+    var loss = 100 - path.winPer[num];
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Win', 'Loss'],
+            datasets: [{
+                label: 'Win Percentage',
+                data: [path.winPer[num], loss],
+                backgroundColor: [
+                    color,
+                    winPerColor
+                ],
+                hoverBackgroundColor: [color,
+                    winPerColor
+                ],
+                borderWidth: 0,
+
+            }]
+        },
+        options: {
+            animation: { easing: 'easeOutQuad', duration: 700 },
+            cutoutPercentage: 80,
+            rotation: Math.PI,
+            circumference: Math.PI,
+            legend: { display: false },
+            tooltips: { enabled: false },
+            hover: { mode: NaN },
+            responsive: true,
+            maintainAspectRatio: false,
+        }
+    });
+
+    return myChart;
+}
 
 // function for main visualization
 
@@ -237,9 +268,10 @@ function teamChosen(name, col) {
     return L.layerGroup([abuDhabi, ahmedabad, bangalore, bloemfontein, capeTown, centurion, chandigarh, chennai, cuttack, delhi, dharamshala, dubai, durban, eastLondon, hyderabad, indore, jaipur, johannesburg, kanpur, kimberley, kochi, kolkata, mumbai, nagpur, portElizabeth, pune, raipur, rajkot, ranchi, sharjah, vishakhapatnam]).addTo(map);
 }
 
-tiles.addTo(map);
+
 
 document.getElementById('csk').onclick = function () {
+    document.getElementById('csk').className = "csk-active";
     if (donut != undefined) {
         donut.destroy();
     }
@@ -447,3 +479,4 @@ document.getElementById('pwi').onclick = function () {
     }
     circles = teamChosen("pwi", pwiCol);
 }
+

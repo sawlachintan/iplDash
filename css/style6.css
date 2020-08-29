@@ -2,61 +2,70 @@
   padding: 0;
   margin: 0;
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   text-decoration: none;
   list-style: none;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   font-weight: 500;
 }
 
 body {
-  background-color: #212121;
-  color: #eee;
+  background-color: #eee;
+  color: #212121;
+  -webkit-transition: 0.3s ease-in;
+  transition: 0.3s ease-in;
 }
 
-nav {
+body nav {
   height: 75px;
   width: 100%;
 }
 
-nav label.head a {
-  color: #e0e0e0;
+body label.head a {
+  color: #212121;
   font-size: 35px;
   font-weight: 700;
   line-height: 75px;
   padding: 0 20px;
   text-align: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
-nav ul {
+body ul {
   float: right;
   margin-right: 20px;
 }
 
-nav ul li {
+body ul li {
   display: inline-block;
   line-height: 75px;
   margin: 0 5px;
 }
 
-nav ul li button:focus {
+body ul li button:focus {
   outline: none;
 }
 
-nav ul li a {
+body ul li a {
   z-index: 2;
-  color: #e0e0e0;
+  color: #212121;
   font-size: 17px;
   font-weight: 600;
   padding: 7px 13px;
   border-radius: 25px;
 }
 
-nav ul li button {
-  color: #e0e0e0;
+body ul li a.active,
+body ul li a:hover {
+  background: #e0e0e0;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+body ul li button {
+  color: #212121;
   background: none;
   border: none;
   font-size: 17px;
@@ -65,21 +74,22 @@ nav ul li button {
   border-radius: 25px;
 }
 
-nav ul li button:hover {
+body ul li button #sun {
+  display: none;
+}
+
+body ul li button #moon {
+  display: block;
+}
+
+body ul li button:hover {
   cursor: pointer;
-  background: rgba(224, 224, 224, 0.15);
+  background: #e0e0e0;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
-nav ul li a.active,
-nav ul li a:hover {
-  background: rgba(224, 224, 224, 0.15);
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-}
-
-.container {
+body .container {
   position: absolute;
   top: 90px;
   width: 100vw;
@@ -87,54 +97,55 @@ nav ul li a:hover {
   padding-right: 20px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 2.25fr 1fr 0.75fr;
-      grid-template-columns: 2.25fr 1fr 0.75fr;
+  -ms-grid-columns: 2.25fr 1fr 1fr;
+  grid-template-columns: 2.25fr 1fr 1fr;
   -ms-grid-rows: 100px 37.5vh 37.5vh 65vh 100px;
-      grid-template-rows: 100px 37.5vh 37.5vh 65vh 100px;
-      grid-template-areas: "teamNames teamNames teamNames" "map winPer writeUp" "map lineChart lineChart" "teamTable teamTable teamTable" "footer footer footer";
+  grid-template-rows: 100px 37.5vh 37.5vh 65vh 100px;
+  grid-template-areas: "teamNames teamNames teamNames""map winPer writeUp""map lineChart lineChart""teamTable teamTable teamTable""footer footer footer";
   overflow: auto;
   gap: 20px;
 }
 
-#team-container {
+body #team-container {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: teamNames;
 }
 
-#team-container #team-name-text {
+body #team-container #team-name-text {
   font-weight: 600;
 }
 
-#team-container #teams {
+body #team-container #teams {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  overflow: auto;
   gap: auto;
   padding-top: 15px;
 }
 
-#team-container #teams button {
+body #team-container #teams button {
   width: 96px;
   height: 50px;
   border-radius: 30px;
   font-weight: 600;
   font-size: 20px;
-  color: #eee;
+  color: #212121;
   padding-left: 15px;
   padding-right: 15px;
 }
 
-#team-container #teams button:focus {
+body #team-container #teams button:focus {
   outline: 0;
 }
 
-#team-container #teams #csk {
+body #team-container #teams #csk {
   position: relative;
   border: #ffc107 5px solid;
   background: none;
@@ -142,10 +153,11 @@ nav ul li a:hover {
   transition: 0.3s ease-in-out;
 }
 
-#team-container #teams #csk:hover {
+body #team-container #teams #csk:hover,
+body #team-container #teams button.csk-active {
   cursor: pointer;
-  -webkit-box-shadow: 0px 0px 25px 2px #111;
-          box-shadow: 0px 0px 25px 2px #111;
+  -webkit-box-shadow: 0px 0px 25px 2px #e0e0e0;
+  box-shadow: 0px 0px 25px 2px #e0e0e0;
   border: none;
   background-image: -webkit-gradient(linear, left top, right bottom, from(#ffcf18), to(#ffb300));
   background-image: linear-gradient(to bottom right, #ffcf18, #ffb300);
@@ -153,12 +165,7 @@ nav ul li a:hover {
   transition: 0.3s ease-in;
 }
 
-#team-container #teams #csk .active {
-  background-image: -webkit-gradient(linear, left top, right bottom, from(#ffcf18), to(#ffb300));
-  background-image: linear-gradient(to bottom right, #ffcf18, #ffb300);
-}
-
-#team-container #teams #mi {
+body #team-container #teams #mi {
   position: relative;
   left: 10px;
   border: #2196f3 5px solid;
@@ -167,16 +174,16 @@ nav ul li a:hover {
   transition: 0.3s;
 }
 
-#team-container #teams #mi:hover {
+body #team-container #teams #mi:hover {
   cursor: pointer;
   border: none;
   background-image: -webkit-gradient(linear, left top, right bottom, from(#2196f3), to(#1976d2));
   background-image: linear-gradient(to bottom right, #2196f3, #1976d2);
-  -webkit-box-shadow: 0px 0px 25px 2px #111;
-          box-shadow: 0px 0px 25px 2px #111;
+  -webkit-box-shadow: 0px 0px 25px 2px #e0e0e0;
+  box-shadow: 0px 0px 25px 2px #e0e0e0;
 }
 
-#team-container #teams #rcb {
+body #team-container #teams #rcb {
   position: relative;
   left: 20px;
   border: #d32f2f 5px solid;
@@ -185,16 +192,16 @@ nav ul li a:hover {
   transition: 0.3s;
 }
 
-#team-container #teams #rcb:hover {
+body #team-container #teams #rcb:hover {
   cursor: pointer;
   border: none;
   background-image: -webkit-gradient(linear, left top, right bottom, from(#d32f2f), to(#d32f2f));
   background-image: linear-gradient(to bottom right, #d32f2f, #d32f2f);
-  -webkit-box-shadow: 0px 0px 25px 2px #111;
-          box-shadow: 0px 0px 25px 2px #111;
+  -webkit-box-shadow: 0px 0px 25px 2px #e0e0e0;
+  box-shadow: 0px 0px 25px 2px #e0e0e0;
 }
 
-#team-container #teams #kkr {
+body #team-container #teams #kkr {
   position: relative;
   left: 30px;
   border: #673ab7 5px solid;
@@ -203,16 +210,16 @@ nav ul li a:hover {
   transition: 0.3s;
 }
 
-#team-container #teams #kkr:hover {
+body #team-container #teams #kkr:hover {
   cursor: pointer;
   border: none;
   background-image: -webkit-gradient(linear, left top, right bottom, from(#673ab7), to(#673ab7));
   background-image: linear-gradient(to bottom right, #673ab7, #673ab7);
-  -webkit-box-shadow: 0px 0px 25px 2px #111;
-          box-shadow: 0px 0px 25px 2px #111;
+  -webkit-box-shadow: 0px 0px 25px 2px #e0e0e0;
+  box-shadow: 0px 0px 25px 2px #e0e0e0;
 }
 
-#team-container #teams #delhi {
+body #team-container #teams #delhi {
   position: relative;
   left: 40px;
   border: #536dfe 5px solid;
@@ -221,16 +228,16 @@ nav ul li a:hover {
   transition: 0.3s;
 }
 
-#team-container #teams #delhi:hover {
+body #team-container #teams #delhi:hover {
   cursor: pointer;
   border: none;
   background-image: -webkit-gradient(linear, left top, right bottom, from(#3d5afe), to(#3d5afe));
   background-image: linear-gradient(to bottom right, #3d5afe, #3d5afe);
-  -webkit-box-shadow: 0px 0px 25px 2px #111;
-          box-shadow: 0px 0px 25px 2px #111;
+  -webkit-box-shadow: 0px 0px 25px 2px #e0e0e0;
+  box-shadow: 0px 0px 25px 2px #e0e0e0;
 }
 
-#team-container #teams #kxip {
+body #team-container #teams #kxip {
   position: relative;
   left: 50px;
   border: #c62828 5px solid;
@@ -239,16 +246,16 @@ nav ul li a:hover {
   transition: 0.3s;
 }
 
-#team-container #teams #kxip:hover {
+body #team-container #teams #kxip:hover {
   cursor: pointer;
   border: none;
   background-image: -webkit-gradient(linear, left top, right bottom, from(#ef5350), to(#e57373));
   background-image: linear-gradient(to bottom right, #ef5350, #e57373);
-  -webkit-box-shadow: 0px 0px 25px 2px #111;
-          box-shadow: 0px 0px 25px 2px #111;
+  -webkit-box-shadow: 0px 0px 25px 2px #e0e0e0;
+  box-shadow: 0px 0px 25px 2px #e0e0e0;
 }
 
-#team-container #teams #rr {
+body #team-container #teams #rr {
   position: relative;
   left: 60px;
   border: #f06292 5px solid;
@@ -257,16 +264,16 @@ nav ul li a:hover {
   transition: 0.3s;
 }
 
-#team-container #teams #rr:hover {
+body #team-container #teams #rr:hover {
   cursor: pointer;
   border: none;
   background-image: -webkit-gradient(linear, left top, right bottom, from(#f06292), to(#ec407a));
   background-image: linear-gradient(to bottom right, #f06292, #ec407a);
-  -webkit-box-shadow: 0px 0px 25px 2px #111;
-          box-shadow: 0px 0px 25px 2px #111;
+  -webkit-box-shadow: 0px 0px 25px 2px #e0e0e0;
+  box-shadow: 0px 0px 25px 2px #e0e0e0;
 }
 
-#team-container #teams #srh {
+body #team-container #teams #srh {
   position: relative;
   left: 70px;
   border: #ff5722 5px solid;
@@ -275,16 +282,16 @@ nav ul li a:hover {
   transition: 0.3s;
 }
 
-#team-container #teams #srh:hover {
+body #team-container #teams #srh:hover {
   cursor: pointer;
   border: none;
   background-image: -webkit-gradient(linear, left top, right bottom, from(#ff5722), to(#f4511e));
   background-image: linear-gradient(to bottom right, #ff5722, #f4511e);
-  -webkit-box-shadow: 0px 0px 25px 2px #111;
-          box-shadow: 0px 0px 25px 2px #111;
+  -webkit-box-shadow: 0px 0px 25px 2px #e0e0e0;
+  box-shadow: 0px 0px 25px 2px #e0e0e0;
 }
 
-#team-container #teams #ktk {
+body #team-container #teams #ktk {
   position: relative;
   left: 80px;
   border: #ab47bc 5px solid;
@@ -293,16 +300,16 @@ nav ul li a:hover {
   transition: 0.3s;
 }
 
-#team-container #teams #ktk:hover {
+body #team-container #teams #ktk:hover {
   cursor: pointer;
   border: none;
   background-image: -webkit-gradient(linear, left top, right bottom, from(#ab47bc), to(#9c27b0));
   background-image: linear-gradient(to bottom right, #ab47bc, #9c27b0);
-  -webkit-box-shadow: 0px 0px 25px 2px #111;
-          box-shadow: 0px 0px 25px 2px #111;
+  -webkit-box-shadow: 0px 0px 25px 2px #e0e0e0;
+  box-shadow: 0px 0px 25px 2px #e0e0e0;
 }
 
-#team-container #teams #gl {
+body #team-container #teams #gl {
   position: relative;
   left: 90px;
   border: #f57c00 5px solid;
@@ -311,16 +318,16 @@ nav ul li a:hover {
   transition: 0.3s;
 }
 
-#team-container #teams #gl:hover {
+body #team-container #teams #gl:hover {
   cursor: pointer;
   border: none;
   background-image: -webkit-gradient(linear, left top, right bottom, from(#f57c00), to(#ef6c00));
   background-image: linear-gradient(to bottom right, #f57c00, #ef6c00);
-  -webkit-box-shadow: 0px 0px 25px 2px #111;
-          box-shadow: 0px 0px 25px 2px #111;
+  -webkit-box-shadow: 0px 0px 25px 2px #e0e0e0;
+  box-shadow: 0px 0px 25px 2px #e0e0e0;
 }
 
-#team-container #teams #rps {
+body #team-container #teams #rps {
   position: relative;
   left: 100px;
   border: #d81b60 5px solid;
@@ -329,16 +336,16 @@ nav ul li a:hover {
   transition: 0.3s;
 }
 
-#team-container #teams #rps:hover {
+body #team-container #teams #rps:hover {
   cursor: pointer;
   border: none;
   background-image: -webkit-gradient(linear, left top, right bottom, from(#d81b60), to(#8e24aa));
   background-image: linear-gradient(to bottom right, #d81b60, #8e24aa);
-  -webkit-box-shadow: 0px 0px 25px 2px #111;
-          box-shadow: 0px 0px 25px 2px #111;
+  -webkit-box-shadow: 0px 0px 25px 2px #e0e0e0;
+  box-shadow: 0px 0px 25px 2px #e0e0e0;
 }
 
-#team-container #teams #deccan {
+body #team-container #teams #deccan {
   position: relative;
   left: 110px;
   border: #607d8b 5px solid;
@@ -347,16 +354,16 @@ nav ul li a:hover {
   transition: 0.3s;
 }
 
-#team-container #teams #deccan:hover {
+body #team-container #teams #deccan:hover {
   cursor: pointer;
   border: none;
   background-image: -webkit-gradient(linear, left top, right bottom, from(#607d8b), to(#546e7a));
   background-image: linear-gradient(to bottom right, #607d8b, #546e7a);
-  -webkit-box-shadow: 0px 0px 25px 2px #111;
-          box-shadow: 0px 0px 25px 2px #111;
+  -webkit-box-shadow: 0px 0px 25px 2px #e0e0e0;
+  box-shadow: 0px 0px 25px 2px #e0e0e0;
 }
 
-#team-container #teams #pwi {
+body #team-container #teams #pwi {
   position: relative;
   left: 120px;
   border: #00bcd4 5px solid;
@@ -365,35 +372,35 @@ nav ul li a:hover {
   transition: 0.3s;
 }
 
-#team-container #teams #pwi:hover {
+body #team-container #teams #pwi:hover {
   cursor: pointer;
   border: none;
   background-image: -webkit-gradient(linear, left top, right bottom, from(#00bcd4), to(#00acc1));
   background-image: linear-gradient(to bottom right, #00bcd4, #00acc1);
-  -webkit-box-shadow: 0px 0px 25px 2px #111;
-          box-shadow: 0px 0px 25px 2px #111;
+  -webkit-box-shadow: 0px 0px 25px 2px #e0e0e0;
+  box-shadow: 0px 0px 25px 2px #e0e0e0;
 }
 
-#map-container {
+body #map-container {
   border-radius: 25px;
-  -webkit-box-shadow: 0px 0px 25px 0.2px #111;
-          box-shadow: 0px 0px 25px 0.2px #111;
+  -webkit-box-shadow: 0px 0px 25px 0.2px #e0e0e0;
+  box-shadow: 0px 0px 25px 0.2px #e0e0e0;
   -ms-grid-row: 2;
   -ms-grid-row-span: 2;
   -ms-grid-column: 1;
   grid-area: map;
 }
 
-#map-container h3 {
+body #map-container h3 {
   position: relative;
   padding-top: 10px;
   padding-left: 20px;
   padding-bottom: 10px;
   font-weight: 600;
-  border-bottom: 2px solid #9e9e9e;
+  border-bottom: 2px solid #212121;
 }
 
-#map-container #map {
+body #map-container #map {
   height: 92.75%;
   border-bottom-left-radius: 25px;
   border-bottom-right-radius: 25px;
@@ -404,6 +411,7 @@ nav ul li a:hover {
     fill-opacity: 0;
     color: 0;
   }
+
   to {
     fill-opacity: 0.5;
     color: 1;
@@ -415,42 +423,43 @@ nav ul li a:hover {
     fill-opacity: 0;
     color: 0;
   }
+
   to {
     fill-opacity: 0.5;
     color: 1;
   }
 }
 
-.circle-transition {
+body .circle-transition {
   -webkit-animation: 0.5s ease-out 0s 1 fadeIn;
-          animation: 0.5s ease-out 0s 1 fadeIn;
+  animation: 0.5s ease-out 0s 1 fadeIn;
 }
 
-#win-per-container {
+body #win-per-container {
   border-radius: 25px;
   -ms-grid-row: 2;
   -ms-grid-column: 2;
   grid-area: winPer;
-  -webkit-box-shadow: 0px 0px 25px 0.2px #111;
-          box-shadow: 0px 0px 25px 0.2px #111;
+  -webkit-box-shadow: 0px 0px 25px 0.2px #e0e0e0;
+  box-shadow: 0px 0px 25px 0.2px #e0e0e0;
 }
 
-#win-per-container h3 {
+body #win-per-container h3 {
   position: relative;
   padding-top: 10px;
   padding-left: 20px;
   padding-bottom: 10px;
   font-weight: 600;
-  border-bottom: 2px solid #eee;
+  border-bottom: 2px solid #212121;
 }
 
-#win-per-container #win-per {
+body #win-per-container #win-per {
   position: relative;
   top: 45px;
   justify-items: center;
 }
 
-#win-per-container #win-per-text {
+body #win-per-container #win-per-text {
   position: relative;
   text-align: center;
   font-weight: 700;
@@ -459,26 +468,26 @@ nav ul li a:hover {
   transition: all 0.5s ease;
 }
 
-#line-chart-container {
+body #line-chart-container {
   border-radius: 25px;
   -ms-grid-row: 3;
   -ms-grid-column: 2;
   -ms-grid-column-span: 2;
   grid-area: lineChart;
-  -webkit-box-shadow: 0px 0px 25px 0.2px #111;
-          box-shadow: 0px 0px 25px 0.2px #111;
+  -webkit-box-shadow: 0px 0px 25px 0.2px #e0e0e0;
+  box-shadow: 0px 0px 25px 0.2px #e0e0e0;
 }
 
-#line-chart-container h3 {
+body #line-chart-container h3 {
   position: relative;
   padding-top: 10px;
   padding-left: 20px;
   padding-bottom: 5px;
   font-weight: 600;
-  border-bottom: 2px solid #eee;
+  border-bottom: 2px solid #212121;
 }
 
-#line-chart-container #line-chart {
+body #line-chart-container #line-chart {
   position: relative;
   bottom: 7px;
   padding-top: 15px;
@@ -486,52 +495,226 @@ nav ul li a:hover {
   max-width: 575px;
 }
 
-#write-up-container {
+body #write-up-container {
   -ms-grid-row: 2;
   -ms-grid-column: 3;
   grid-area: writeUp;
-  -webkit-box-shadow: 0px 0px 25px 0.2px #111;
-          box-shadow: 0px 0px 25px 0.2px #111;
+  -webkit-box-shadow: 0px 0px 25px 0.2px #e0e0e0;
+  box-shadow: 0px 0px 25px 0.2px #e0e0e0;
   border-radius: 25px;
 }
 
-#write-up-container h3 {
+body #write-up-container h3 {
   position: relative;
   padding-top: 10px;
   padding-left: 20px;
   padding-bottom: 10px;
   font-weight: 600;
-  border-bottom: 2px solid #eee;
+  border-bottom: 2px solid #212121;
 }
 
-#table-container {
+body #table-container {
   -ms-grid-row: 4;
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: teamTable;
-  -webkit-box-shadow: 0px 0px 25px 0.2px #111;
-          box-shadow: 0px 0px 25px 0.2px #111;
+  -webkit-box-shadow: 0px 0px 25px 0.2px #e0e0e0;
+  box-shadow: 0px 0px 25px 0.2px #e0e0e0;
   border-radius: 25px;
 }
 
-#table-container h3 {
+body #table-container h3 {
   position: relative;
   padding-top: 10px;
   padding-left: 20px;
   padding-bottom: 10px;
   font-weight: 600;
-  border-bottom: 2px solid #eee;
+  border-bottom: 2px solid #212121;
 }
 
-footer {
+body footer {
   -ms-grid-row: 5;
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: footer;
   text-align: center;
   -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  -ms-grid-row-align: center;
+  align-self: center;
   font-weight: 600;
 }
+
+.dark-mode {
+  background-color: #212121;
+  color: #eee;
+  -webkit-transition: 0.3s ease-in;
+  transition: 0.3s ease-in;
+}
+
+.dark-mode label.head a {
+  color: #eee;
+}
+
+.dark-mode ul {
+  float: right;
+  margin-right: 20px;
+}
+
+.dark-mode ul li button:focus {
+  outline: none;
+}
+
+.dark-mode ul li a {
+  color: #eee;
+}
+
+.dark-mode ul li a.active,
+.dark-mode ul li a:hover {
+  background: rgba(224, 224, 224, 0.15);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.dark-mode ul li button {
+  color: #eee;
+}
+
+.dark-mode ul li button #sun {
+  display: block;
+}
+
+.dark-mode ul li button #moon {
+  display: none;
+}
+
+.dark-mode ul li button:hover {
+  background: rgba(224, 224, 224, 0.15);
+}
+
+.dark-mode #team-container #teams button {
+  color: #eee;
+}
+
+.dark-mode #team-container #teams #csk:hover,
+.dark-mode #team-container #teams button.csk-active {
+  cursor: pointer;
+  -webkit-box-shadow: 0px 0px 25px 2px #111;
+  box-shadow: 0px 0px 25px 2px #111;
+}
+
+.dark-mode #team-container #teams #mi:hover {
+  -webkit-box-shadow: 0px 0px 25px 2px #111;
+  box-shadow: 0px 0px 25px 2px #111;
+}
+
+.dark-mode #team-container #teams #rcb:hover {
+  -webkit-box-shadow: 0px 0px 25px 2px #111;
+  box-shadow: 0px 0px 25px 2px #111;
+}
+
+.dark-mode #team-container #teams #kkr:hover {
+  -webkit-box-shadow: 0px 0px 25px 2px #111;
+  box-shadow: 0px 0px 25px 2px #111;
+}
+
+.dark-mode #team-container #teams #delhi:hover {
+  -webkit-box-shadow: 0px 0px 25px 2px #111;
+  box-shadow: 0px 0px 25px 2px #111;
+}
+
+.dark-mode #team-container #teams #kxip:hover {
+  -webkit-box-shadow: 0px 0px 25px 2px #111;
+  box-shadow: 0px 0px 25px 2px #111;
+}
+
+.dark-mode #team-container #teams #rr:hover {
+  -webkit-box-shadow: 0px 0px 25px 2px #111;
+  box-shadow: 0px 0px 25px 2px #111;
+}
+
+.dark-mode #team-container #teams #srh:hover {
+  -webkit-box-shadow: 0px 0px 25px 2px #111;
+  box-shadow: 0px 0px 25px 2px #111;
+}
+
+.dark-mode #team-container #teams #ktk:hover {
+  -webkit-box-shadow: 0px 0px 25px 2px #111;
+  box-shadow: 0px 0px 25px 2px #111;
+}
+
+.dark-mode #team-container #teams #gl:hover {
+  -webkit-box-shadow: 0px 0px 25px 2px #111;
+  box-shadow: 0px 0px 25px 2px #111;
+}
+
+.dark-mode #team-container #teams #rps:hover {
+  -webkit-box-shadow: 0px 0px 25px 2px #111;
+  box-shadow: 0px 0px 25px 2px #111;
+}
+
+.dark-mode #team-container #teams #deccan:hover {
+  -webkit-box-shadow: 0px 0px 25px 2px #111;
+  box-shadow: 0px 0px 25px 2px #111;
+}
+
+.dark-mode #team-container #teams #pwi:hover {
+  -webkit-box-shadow: 0px 0px 25px 2px #111;
+  box-shadow: 0px 0px 25px 2px #111;
+}
+
+.dark-mode #map-container {
+  -webkit-box-shadow: 0px 0px 25px 0.2px #111;
+  box-shadow: 0px 0px 25px 0.2px #111;
+}
+
+.dark-mode #map-container h3 {
+  border-bottom: 2px solid #9e9e9e;
+}
+
+.dark-mode #win-per-container {
+  -webkit-box-shadow: 0px 0px 25px 0.2px #111;
+  box-shadow: 0px 0px 25px 0.2px #111;
+}
+
+.dark-mode #win-per-container h3 {
+  border-bottom: 2px solid #9e9e9e;
+}
+
+.dark-mode #line-chart-container {
+  -webkit-box-shadow: 0px 0px 25px 0.2px #111;
+  box-shadow: 0px 0px 25px 0.2px #111;
+}
+
+.dark-mode #line-chart-container h3 {
+  border-bottom: 2px solid #9e9e9e;
+}
+
+.dark-mode #write-up-container {
+  -webkit-box-shadow: 0px 0px 25px 0.2px #111;
+  box-shadow: 0px 0px 25px 0.2px #111;
+}
+
+.dark-mode #write-up-container h3 {
+  border-bottom: 2px solid #9e9e9e;
+}
+
+.dark-mode #table-container {
+  -webkit-box-shadow: 0px 0px 25px 0.2px #111;
+  box-shadow: 0px 0px 25px 0.2px #111;
+}
+
+.dark-mode #table-container h3 {
+  border-bottom: 2px solid #9e9e9e;
+}
+
+@media only screen and (max-width: 550px) {
+  .container {
+    -ms-grid-columns: 100vw;
+    grid-template-columns: 100vw;
+    -ms-grid-rows: 100px 300px 200px 200px 175px 500px 100px;
+    grid-template-rows: 100px 300px 200px 200px 175px 500px 100px;
+    grid-template-areas: "teamNames""map""winPer""writeUp""lineChart""teamTable""footer";
+  }
+}
+
 /*# sourceMappingURL=style6.css.map */
