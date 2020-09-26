@@ -25,7 +25,7 @@ const lineChart = { "team.name": ["Chennai Super Kings", "Deccan Chargers", "Del
 const fact = { "team.name": ["Chennai Super Kings", "Deccan Chargers", "Delhi Capitals", "Gujarat Lions", "Kings XI Punjab", "Kochi Tuskers Kerala", "Kolkata Knight Riders", "Mumbai Indians", "Pune Warriors India", "Rajasthan Royals", "Rising Pune Supergiants", "Royal Challengers Bangalore", "Sunrisers Hyderabad"], "alt.name": ["Chennai Super Kings", "Deccan Chargers", "Delhi Daredevils", "Gujarat Lions", "Kings XI Punjab", "Kochi Tuskers Kerala", "Kolkata Knight Riders", "Mumbai Indians", "Pune Warriors", "Rajasthan Royals", "Rising Pune Supergiant", "Royal Challengers Bangalore", "Sunrisers Hyderabad"], "score": ["246/5", "214/5", "231/4", "208/7", "232/2", "184/2", "245/6", "223/6", "192/3", "223/5", "195/3", "263/5", "231/2"], "id": ["m147", "m009", "m200", "m618", "m237", "m188", "m680", "m627", "m276", "m147", "m542", "m352", "m707"], "date": ["April 03, 2010", "April 24, 2008", "April 23, 2011", "May 04, 2017", "May 17, 2011", "April 15, 2011", "May 12, 2018", "May 11, 2017", "April 21, 2012", "April 03, 2010", "April 29, 2016", "April 23, 2013", "March 31, 2019"], "venue": ["MA Chidambaram Stadium, Chepauk", "Rajiv Gandhi International Stadium, Uppal", "Feroz Shah Kotla", "Feroz Shah Kotla", "Himachal Pradesh Cricket Association Stadium", "Wankhede Stadium", "Holkar Cricket Stadium", "Wankhede Stadium", "Feroz Shah Kotla", "MA Chidambaram Stadium, Chepauk", "Maharashtra Cricket Association Stadium", "M Chinnaswamy Stadium", "Rajiv Gandhi International Stadium, Uppal"] }
     ;
 
-console.log(path.winPer);
+
 
 // team colors
 var cskCol = '#ffc107';
@@ -552,15 +552,15 @@ function sortTableByColumn(table, column, asc = true) {
             var aColText = parseInt(a.querySelector(`td:nth-child(${column + 1})`).textContent.trim());
             var bColText = parseInt(b.querySelector(`td:nth-child(${column + 1})`).textContent.trim());
         }
-    
+
 
         return aColText > bColText ? (1 * dirModifier) : (-1 * dirModifier);
 
     });
 
-    console.log(sortedRows);
 
-    while(tBody.firstChild) {
+
+    while (tBody.firstChild) {
         tBody.removeChild(tBody.firstChild);
     };
 
