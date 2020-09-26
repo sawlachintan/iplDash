@@ -618,7 +618,7 @@ body footer .contact-us {
 body footer .contact-us li {
   display: inline-block;
   margin: 0 5px;
-  margin-top: 10px;
+  margin-top: 7.5px;
 }
 
 body footer .contact-us li a i {
@@ -626,12 +626,16 @@ body footer .contact-us li a i {
 }
 
 body footer .data-source {
-  margin-top: 10px;
+  margin-top: 7.5px;
 }
 
 body footer .data-source a {
   color: #212121;
   text-decoration: underline;
+}
+
+body footer .note {
+  margin-top: 7.5px;
 }
 
 .dark-mode {
