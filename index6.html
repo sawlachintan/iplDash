@@ -10,7 +10,8 @@
     <meta name="description" content="Vizualizing every IPL Team's performance">
     <link rel="stylesheet" href="./css/style6.css">
     <link rel="shortcut icon" href="/Users/chintan/Desktop/logo4-01.ico" type="image/x-icon">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://kit.fontawesome.com/3f384802a6.js" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
@@ -26,10 +27,10 @@
 <body>
     <nav>
         <label class="head"><a href="./index6.html">IPL Dashboard</a></label>
-        <ul>
-            <li><a href="./index6.html" class="active">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+        <ul class="navbar">
+            <!-- <li><a href="./index6.html" class="active">Home</a></li> -->
+            <!-- <li><a href="#">About</a></li> -->
+            <!-- <li><a href="#">Contact</a></li> -->
             <li>
                 <button onclick="darkmode()" id="dark-mode-button">
                     <i class="fa fa-moon" id="moon"></i>
@@ -75,18 +76,61 @@
                 <canvas id="line-chart" width="400" height="250"></canvas>
             </div>
         </div>
-        <div id="write-up-container">
-            <h3 id="write-up-text">Write Up</h3>
-            <div id="write-up"></div>
+        <div id="fact-container">
+            <h3 id="fact-text">Fact</h3>
+            <h4 id="fact"></h4>
         </div>
         <div id="table-container">
-            <h3 id="table-text">Table Name</h3>
-            <table id="team-table"></table>
+            <h3 id="table-text">Table</h3>
+            <table class="table table-sortable" id="team-table">
+                <thead>
+                    <tr id="table-head">
+                        <th>Team</th>
+                        <th>Matches</th>
+                        <th>Won</th>
+                        <th>Lost</th>
+                        <th>Tie</th>
+                        <th>Total Runs</th>
+                        <th>Highest Score</th>
+                    </tr>
+                </thead>
+                <tbody id="table-data">
+
+                </tbody>
+            </table>
         </div>
-        <footer id="footer">Made with ❤️ in India</footer>
+        <footer id="footer">
+            <p>Made with ❤️ in India</p>
+            <!-- Add font awesome icons -->
+            <ul class="contact-us">
+                <li>
+                    <a href="mailto:sawlachintan@gmail.com">
+                        <i class="fas fa-envelope" style="font-size:20px"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/stateyestic/">
+                        <i class="fab fa-instagram	" style="font-size: 20px;" aria-hidden="true"></i>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="https://github.com/sawlachintan">
+                        <i class="fab fa-github	" style="font-size: 20px;" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <!-- fab fa-linkedin -->
+                <li>
+                    <a href="https://www.linkedin.com/in/chintansawla/">
+                        <i class="fab fa-linkedin" style="font-size: 20px;" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+            <p class="data-source">Source of Data: <a href="https://cricsheet.org/">Cricsheet</a></p>
+        </footer>
     </div>
     <script src="./node_modules/chart.js/dist/Chart.js"></script>
-    <script src="./js/winpercentage.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>

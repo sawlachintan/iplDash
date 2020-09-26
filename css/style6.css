@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
   text-decoration: none;
   list-style: none;
   font-family: "Montserrat";
@@ -17,6 +17,7 @@ body {
 }
 
 body nav {
+  z-index: 999;
   height: 75px;
   width: 100%;
 }
@@ -29,26 +30,26 @@ body label.head a {
   padding: 0 20px;
   text-align: center;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-body ul {
+body .navbar {
   float: right;
   margin-right: 20px;
 }
 
-body ul li {
+body .navbar li {
   display: inline-block;
   line-height: 75px;
   margin: 0 5px;
 }
 
-body ul li button:focus {
+body .navbar li button:focus {
   outline: none;
 }
 
-body ul li a {
+body .navbar li a {
   z-index: 2;
   color: #212121;
   font-size: 17px;
@@ -57,14 +58,14 @@ body ul li a {
   border-radius: 25px;
 }
 
-body ul li a.active,
-body ul li a:hover {
+body .navbar li a.active,
+body .navbar li a:hover {
   background: #e0e0e0;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
-body ul li button {
+body .navbar li button {
   color: #212121;
   background: none;
   border: none;
@@ -74,15 +75,15 @@ body ul li button {
   border-radius: 25px;
 }
 
-body ul li button #sun {
+body .navbar li button #sun {
   display: none;
 }
 
-body ul li button #moon {
+body .navbar li button #moon {
   display: block;
 }
 
-body ul li button:hover {
+body .navbar li button:hover {
   cursor: pointer;
   background: #e0e0e0;
   -webkit-transition: 0.5s;
@@ -97,11 +98,11 @@ body .container {
   padding-right: 20px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 2.25fr 1fr 1fr;
-  grid-template-columns: 2.25fr 1fr 1fr;
-  -ms-grid-rows: 100px 37.5vh 37.5vh 65vh 100px;
-  grid-template-rows: 100px 37.5vh 37.5vh 65vh 100px;
-  grid-template-areas: "teamNames teamNames teamNames""map winPer writeUp""map lineChart lineChart""teamTable teamTable teamTable""footer footer footer";
+  -ms-grid-columns: 710px 325px 325px;
+      grid-template-columns: 710px 325px 325px;
+  -ms-grid-rows: 100px 300px 300px 560px 200px;
+      grid-template-rows: 100px 300px 300px 560px 200px;
+      grid-template-areas: "teamNames teamNames teamNames" "map winPer writeUp" "map lineChart lineChart" "teamTable teamTable teamTable" "footer footer footer";
   overflow: auto;
   gap: 20px;
 }
@@ -123,8 +124,8 @@ body #team-container #teams {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
   overflow: auto;
   gap: auto;
   padding-top: 15px;
@@ -157,7 +158,7 @@ body #team-container #teams #csk:hover,
 body #team-container #teams button.csk-active {
   cursor: pointer;
   -webkit-box-shadow: 0px 0px 25px 2px #e0e0e0;
-  box-shadow: 0px 0px 25px 2px #e0e0e0;
+          box-shadow: 0px 0px 25px 2px #e0e0e0;
   border: none;
   background-image: -webkit-gradient(linear, left top, right bottom, from(#ffcf18), to(#ffb300));
   background-image: linear-gradient(to bottom right, #ffcf18, #ffb300);
@@ -180,7 +181,7 @@ body #team-container #teams #mi:hover {
   background-image: -webkit-gradient(linear, left top, right bottom, from(#2196f3), to(#1976d2));
   background-image: linear-gradient(to bottom right, #2196f3, #1976d2);
   -webkit-box-shadow: 0px 0px 25px 2px #e0e0e0;
-  box-shadow: 0px 0px 25px 2px #e0e0e0;
+          box-shadow: 0px 0px 25px 2px #e0e0e0;
 }
 
 body #team-container #teams #rcb {
@@ -198,7 +199,7 @@ body #team-container #teams #rcb:hover {
   background-image: -webkit-gradient(linear, left top, right bottom, from(#d32f2f), to(#d32f2f));
   background-image: linear-gradient(to bottom right, #d32f2f, #d32f2f);
   -webkit-box-shadow: 0px 0px 25px 2px #e0e0e0;
-  box-shadow: 0px 0px 25px 2px #e0e0e0;
+          box-shadow: 0px 0px 25px 2px #e0e0e0;
 }
 
 body #team-container #teams #kkr {
@@ -216,7 +217,7 @@ body #team-container #teams #kkr:hover {
   background-image: -webkit-gradient(linear, left top, right bottom, from(#673ab7), to(#673ab7));
   background-image: linear-gradient(to bottom right, #673ab7, #673ab7);
   -webkit-box-shadow: 0px 0px 25px 2px #e0e0e0;
-  box-shadow: 0px 0px 25px 2px #e0e0e0;
+          box-shadow: 0px 0px 25px 2px #e0e0e0;
 }
 
 body #team-container #teams #delhi {
@@ -234,7 +235,7 @@ body #team-container #teams #delhi:hover {
   background-image: -webkit-gradient(linear, left top, right bottom, from(#3d5afe), to(#3d5afe));
   background-image: linear-gradient(to bottom right, #3d5afe, #3d5afe);
   -webkit-box-shadow: 0px 0px 25px 2px #e0e0e0;
-  box-shadow: 0px 0px 25px 2px #e0e0e0;
+          box-shadow: 0px 0px 25px 2px #e0e0e0;
 }
 
 body #team-container #teams #kxip {
@@ -252,7 +253,7 @@ body #team-container #teams #kxip:hover {
   background-image: -webkit-gradient(linear, left top, right bottom, from(#ef5350), to(#e57373));
   background-image: linear-gradient(to bottom right, #ef5350, #e57373);
   -webkit-box-shadow: 0px 0px 25px 2px #e0e0e0;
-  box-shadow: 0px 0px 25px 2px #e0e0e0;
+          box-shadow: 0px 0px 25px 2px #e0e0e0;
 }
 
 body #team-container #teams #rr {
@@ -270,7 +271,7 @@ body #team-container #teams #rr:hover {
   background-image: -webkit-gradient(linear, left top, right bottom, from(#f06292), to(#ec407a));
   background-image: linear-gradient(to bottom right, #f06292, #ec407a);
   -webkit-box-shadow: 0px 0px 25px 2px #e0e0e0;
-  box-shadow: 0px 0px 25px 2px #e0e0e0;
+          box-shadow: 0px 0px 25px 2px #e0e0e0;
 }
 
 body #team-container #teams #srh {
@@ -288,7 +289,7 @@ body #team-container #teams #srh:hover {
   background-image: -webkit-gradient(linear, left top, right bottom, from(#ff5722), to(#f4511e));
   background-image: linear-gradient(to bottom right, #ff5722, #f4511e);
   -webkit-box-shadow: 0px 0px 25px 2px #e0e0e0;
-  box-shadow: 0px 0px 25px 2px #e0e0e0;
+          box-shadow: 0px 0px 25px 2px #e0e0e0;
 }
 
 body #team-container #teams #ktk {
@@ -306,7 +307,7 @@ body #team-container #teams #ktk:hover {
   background-image: -webkit-gradient(linear, left top, right bottom, from(#ab47bc), to(#9c27b0));
   background-image: linear-gradient(to bottom right, #ab47bc, #9c27b0);
   -webkit-box-shadow: 0px 0px 25px 2px #e0e0e0;
-  box-shadow: 0px 0px 25px 2px #e0e0e0;
+          box-shadow: 0px 0px 25px 2px #e0e0e0;
 }
 
 body #team-container #teams #gl {
@@ -324,7 +325,7 @@ body #team-container #teams #gl:hover {
   background-image: -webkit-gradient(linear, left top, right bottom, from(#f57c00), to(#ef6c00));
   background-image: linear-gradient(to bottom right, #f57c00, #ef6c00);
   -webkit-box-shadow: 0px 0px 25px 2px #e0e0e0;
-  box-shadow: 0px 0px 25px 2px #e0e0e0;
+          box-shadow: 0px 0px 25px 2px #e0e0e0;
 }
 
 body #team-container #teams #rps {
@@ -342,7 +343,7 @@ body #team-container #teams #rps:hover {
   background-image: -webkit-gradient(linear, left top, right bottom, from(#d81b60), to(#8e24aa));
   background-image: linear-gradient(to bottom right, #d81b60, #8e24aa);
   -webkit-box-shadow: 0px 0px 25px 2px #e0e0e0;
-  box-shadow: 0px 0px 25px 2px #e0e0e0;
+          box-shadow: 0px 0px 25px 2px #e0e0e0;
 }
 
 body #team-container #teams #deccan {
@@ -360,7 +361,7 @@ body #team-container #teams #deccan:hover {
   background-image: -webkit-gradient(linear, left top, right bottom, from(#607d8b), to(#546e7a));
   background-image: linear-gradient(to bottom right, #607d8b, #546e7a);
   -webkit-box-shadow: 0px 0px 25px 2px #e0e0e0;
-  box-shadow: 0px 0px 25px 2px #e0e0e0;
+          box-shadow: 0px 0px 25px 2px #e0e0e0;
 }
 
 body #team-container #teams #pwi {
@@ -378,13 +379,13 @@ body #team-container #teams #pwi:hover {
   background-image: -webkit-gradient(linear, left top, right bottom, from(#00bcd4), to(#00acc1));
   background-image: linear-gradient(to bottom right, #00bcd4, #00acc1);
   -webkit-box-shadow: 0px 0px 25px 2px #e0e0e0;
-  box-shadow: 0px 0px 25px 2px #e0e0e0;
+          box-shadow: 0px 0px 25px 2px #e0e0e0;
 }
 
 body #map-container {
   border-radius: 25px;
   -webkit-box-shadow: 0px 0px 25px 0.2px #e0e0e0;
-  box-shadow: 0px 0px 25px 0.2px #e0e0e0;
+          box-shadow: 0px 0px 25px 0.2px #e0e0e0;
   -ms-grid-row: 2;
   -ms-grid-row-span: 2;
   -ms-grid-column: 1;
@@ -411,7 +412,6 @@ body #map-container #map {
     fill-opacity: 0;
     color: 0;
   }
-
   to {
     fill-opacity: 0.5;
     color: 1;
@@ -423,7 +423,6 @@ body #map-container #map {
     fill-opacity: 0;
     color: 0;
   }
-
   to {
     fill-opacity: 0.5;
     color: 1;
@@ -432,7 +431,7 @@ body #map-container #map {
 
 body .circle-transition {
   -webkit-animation: 0.5s ease-out 0s 1 fadeIn;
-  animation: 0.5s ease-out 0s 1 fadeIn;
+          animation: 0.5s ease-out 0s 1 fadeIn;
 }
 
 body #win-per-container {
@@ -441,7 +440,7 @@ body #win-per-container {
   -ms-grid-column: 2;
   grid-area: winPer;
   -webkit-box-shadow: 0px 0px 25px 0.2px #e0e0e0;
-  box-shadow: 0px 0px 25px 0.2px #e0e0e0;
+          box-shadow: 0px 0px 25px 0.2px #e0e0e0;
 }
 
 body #win-per-container h3 {
@@ -475,7 +474,7 @@ body #line-chart-container {
   -ms-grid-column-span: 2;
   grid-area: lineChart;
   -webkit-box-shadow: 0px 0px 25px 0.2px #e0e0e0;
-  box-shadow: 0px 0px 25px 0.2px #e0e0e0;
+          box-shadow: 0px 0px 25px 0.2px #e0e0e0;
 }
 
 body #line-chart-container h3 {
@@ -495,16 +494,16 @@ body #line-chart-container #line-chart {
   max-width: 575px;
 }
 
-body #write-up-container {
+body #fact-container {
   -ms-grid-row: 2;
   -ms-grid-column: 3;
   grid-area: writeUp;
   -webkit-box-shadow: 0px 0px 25px 0.2px #e0e0e0;
-  box-shadow: 0px 0px 25px 0.2px #e0e0e0;
+          box-shadow: 0px 0px 25px 0.2px #e0e0e0;
   border-radius: 25px;
 }
 
-body #write-up-container h3 {
+body #fact-container h3 {
   position: relative;
   padding-top: 10px;
   padding-left: 20px;
@@ -513,13 +512,27 @@ body #write-up-container h3 {
   border-bottom: 2px solid #212121;
 }
 
+body #fact-container #fact {
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 15px;
+  font-weight: 700;
+  font-size: 22.5px;
+  line-height: 1.75;
+}
+
+body #fact-container #fact #fact-team-name,
+body #fact-container #fact #fact-team-score {
+  font-weight: 700;
+}
+
 body #table-container {
   -ms-grid-row: 4;
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: teamTable;
   -webkit-box-shadow: 0px 0px 25px 0.2px #e0e0e0;
-  box-shadow: 0px 0px 25px 0.2px #e0e0e0;
+          box-shadow: 0px 0px 25px 0.2px #e0e0e0;
   border-radius: 25px;
 }
 
@@ -532,16 +545,93 @@ body #table-container h3 {
   border-bottom: 2px solid #212121;
 }
 
+body #table-container table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  height: 100%;
+  -webkit-box-shadow: 0 0 25px 5px #eee;
+          box-shadow: 0 0 25px 5px #eee;
+}
+
+body #table-container table tbody tr td:nth-child(n+2) {
+  text-align: right;
+}
+
+body #table-container td,
+body #table-container th {
+  border: 1px solid #cccccc;
+  padding: 8px;
+}
+
+body #table-container th {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+body #table-container tr:nth-child(even) {
+  background-color: #ccc;
+}
+
+body #table-container .table-sortable th {
+  cursor: pointer;
+}
+
+body #table-container .table-sortable .th-sort-asc::after {
+  content: "\25b4";
+}
+
+body #table-container .table-sortable .th-sort-desc::after {
+  content: "\25be";
+}
+
+body #table-container .table-sortable .th-sort-desc::after,
+body #table-container .table-sortable .th-sort-asc::after {
+  margin-left: 5px;
+}
+
+body #table-container .table-sortable .th-sort-desc,
+body #table-container .table-sortable .th-sort-asc {
+  background: rgba(0, 0, 0, 0.1);
+}
+
 body footer {
+  margin-top: 40px;
   -ms-grid-row: 5;
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   grid-area: footer;
   text-align: center;
   -ms-flex-item-align: center;
-  -ms-grid-row-align: center;
-  align-self: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+body footer p {
   font-weight: 600;
+}
+
+body footer .contact-us {
+  float: center;
+}
+
+body footer .contact-us li {
+  display: inline-block;
+  margin: 0 5px;
+  margin-top: 10px;
+}
+
+body footer .contact-us li a i {
+  color: #212121;
+}
+
+body footer .data-source {
+  margin-top: 10px;
+}
+
+body footer .data-source a {
+  color: #212121;
+  text-decoration: underline;
 }
 
 .dark-mode {
@@ -555,39 +645,39 @@ body footer {
   color: #eee;
 }
 
-.dark-mode ul {
+.dark-mode .navbar {
   float: right;
   margin-right: 20px;
 }
 
-.dark-mode ul li button:focus {
+.dark-mode .navbar li button:focus {
   outline: none;
 }
 
-.dark-mode ul li a {
+.dark-mode .navbar li a {
   color: #eee;
 }
 
-.dark-mode ul li a.active,
-.dark-mode ul li a:hover {
+.dark-mode .navbar li a.active,
+.dark-mode .navbar li a:hover {
   background: rgba(224, 224, 224, 0.15);
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
 
-.dark-mode ul li button {
+.dark-mode .navbar li button {
   color: #eee;
 }
 
-.dark-mode ul li button #sun {
+.dark-mode .navbar li button #sun {
   display: block;
 }
 
-.dark-mode ul li button #moon {
+.dark-mode .navbar li button #moon {
   display: none;
 }
 
-.dark-mode ul li button:hover {
+.dark-mode .navbar li button:hover {
   background: rgba(224, 224, 224, 0.15);
 }
 
@@ -599,72 +689,72 @@ body footer {
 .dark-mode #team-container #teams button.csk-active {
   cursor: pointer;
   -webkit-box-shadow: 0px 0px 25px 2px #111;
-  box-shadow: 0px 0px 25px 2px #111;
+          box-shadow: 0px 0px 25px 2px #111;
 }
 
 .dark-mode #team-container #teams #mi:hover {
   -webkit-box-shadow: 0px 0px 25px 2px #111;
-  box-shadow: 0px 0px 25px 2px #111;
+          box-shadow: 0px 0px 25px 2px #111;
 }
 
 .dark-mode #team-container #teams #rcb:hover {
   -webkit-box-shadow: 0px 0px 25px 2px #111;
-  box-shadow: 0px 0px 25px 2px #111;
+          box-shadow: 0px 0px 25px 2px #111;
 }
 
 .dark-mode #team-container #teams #kkr:hover {
   -webkit-box-shadow: 0px 0px 25px 2px #111;
-  box-shadow: 0px 0px 25px 2px #111;
+          box-shadow: 0px 0px 25px 2px #111;
 }
 
 .dark-mode #team-container #teams #delhi:hover {
   -webkit-box-shadow: 0px 0px 25px 2px #111;
-  box-shadow: 0px 0px 25px 2px #111;
+          box-shadow: 0px 0px 25px 2px #111;
 }
 
 .dark-mode #team-container #teams #kxip:hover {
   -webkit-box-shadow: 0px 0px 25px 2px #111;
-  box-shadow: 0px 0px 25px 2px #111;
+          box-shadow: 0px 0px 25px 2px #111;
 }
 
 .dark-mode #team-container #teams #rr:hover {
   -webkit-box-shadow: 0px 0px 25px 2px #111;
-  box-shadow: 0px 0px 25px 2px #111;
+          box-shadow: 0px 0px 25px 2px #111;
 }
 
 .dark-mode #team-container #teams #srh:hover {
   -webkit-box-shadow: 0px 0px 25px 2px #111;
-  box-shadow: 0px 0px 25px 2px #111;
+          box-shadow: 0px 0px 25px 2px #111;
 }
 
 .dark-mode #team-container #teams #ktk:hover {
   -webkit-box-shadow: 0px 0px 25px 2px #111;
-  box-shadow: 0px 0px 25px 2px #111;
+          box-shadow: 0px 0px 25px 2px #111;
 }
 
 .dark-mode #team-container #teams #gl:hover {
   -webkit-box-shadow: 0px 0px 25px 2px #111;
-  box-shadow: 0px 0px 25px 2px #111;
+          box-shadow: 0px 0px 25px 2px #111;
 }
 
 .dark-mode #team-container #teams #rps:hover {
   -webkit-box-shadow: 0px 0px 25px 2px #111;
-  box-shadow: 0px 0px 25px 2px #111;
+          box-shadow: 0px 0px 25px 2px #111;
 }
 
 .dark-mode #team-container #teams #deccan:hover {
   -webkit-box-shadow: 0px 0px 25px 2px #111;
-  box-shadow: 0px 0px 25px 2px #111;
+          box-shadow: 0px 0px 25px 2px #111;
 }
 
 .dark-mode #team-container #teams #pwi:hover {
   -webkit-box-shadow: 0px 0px 25px 2px #111;
-  box-shadow: 0px 0px 25px 2px #111;
+          box-shadow: 0px 0px 25px 2px #111;
 }
 
 .dark-mode #map-container {
   -webkit-box-shadow: 0px 0px 25px 0.2px #111;
-  box-shadow: 0px 0px 25px 0.2px #111;
+          box-shadow: 0px 0px 25px 0.2px #111;
 }
 
 .dark-mode #map-container h3 {
@@ -673,7 +763,7 @@ body footer {
 
 .dark-mode #win-per-container {
   -webkit-box-shadow: 0px 0px 25px 0.2px #111;
-  box-shadow: 0px 0px 25px 0.2px #111;
+          box-shadow: 0px 0px 25px 0.2px #111;
 }
 
 .dark-mode #win-per-container h3 {
@@ -682,39 +772,112 @@ body footer {
 
 .dark-mode #line-chart-container {
   -webkit-box-shadow: 0px 0px 25px 0.2px #111;
-  box-shadow: 0px 0px 25px 0.2px #111;
+          box-shadow: 0px 0px 25px 0.2px #111;
 }
 
 .dark-mode #line-chart-container h3 {
   border-bottom: 2px solid #9e9e9e;
 }
 
-.dark-mode #write-up-container {
+.dark-mode #fact-container {
   -webkit-box-shadow: 0px 0px 25px 0.2px #111;
-  box-shadow: 0px 0px 25px 0.2px #111;
+          box-shadow: 0px 0px 25px 0.2px #111;
 }
 
-.dark-mode #write-up-container h3 {
+.dark-mode #fact-container h3 {
   border-bottom: 2px solid #9e9e9e;
 }
 
 .dark-mode #table-container {
   -webkit-box-shadow: 0px 0px 25px 0.2px #111;
-  box-shadow: 0px 0px 25px 0.2px #111;
+          box-shadow: 0px 0px 25px 0.2px #111;
 }
 
 .dark-mode #table-container h3 {
   border-bottom: 2px solid #9e9e9e;
 }
 
-@media only screen and (max-width: 550px) {
-  .container {
-    -ms-grid-columns: 100vw;
-    grid-template-columns: 100vw;
-    -ms-grid-rows: 100px 300px 200px 200px 175px 500px 100px;
-    grid-template-rows: 100px 300px 200px 200px 175px 500px 100px;
-    grid-template-areas: "teamNames""map""winPer""writeUp""lineChart""teamTable""footer";
-  }
+.dark-mode #table-container table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  -webkit-box-shadow: 0 0 25px 5px #111;
+          box-shadow: 0 0 25px 5px #111;
 }
 
+.dark-mode #table-container td,
+.dark-mode #table-container th {
+  border: 1px solid #9e9e9e;
+  padding: 8px;
+}
+
+.dark-mode #table-container th {
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.dark-mode #table-container tr:nth-child(even) {
+  background-color: #111;
+}
+
+.dark-mode #table-container .table-sortable th {
+  cursor: pointer;
+}
+
+.dark-mode #table-container .table-sortable .th-sort-asc::after {
+  content: "\25b4";
+}
+
+.dark-mode #table-container .table-sortable .th-sort-desc::after {
+  content: "\25be";
+}
+
+.dark-mode #table-container .table-sortable .th-sort-desc::after,
+.dark-mode #table-container .table-sortable .th-sort-asc::after {
+  margin-left: 5px;
+}
+
+.dark-mode #table-container .table-sortable .th-sort-desc,
+.dark-mode #table-container .table-sortable .th-sort-asc {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode footer {
+  margin-top: 40px;
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: footer;
+  text-align: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.dark-mode footer p {
+  font-weight: 600;
+}
+
+.dark-mode footer .contact-us {
+  float: center;
+}
+
+.dark-mode footer .contact-us li {
+  display: inline-block;
+  margin: 0 5px;
+  margin-top: 10px;
+}
+
+.dark-mode footer .contact-us li a i {
+  color: #eee;
+}
+
+.dark-mode footer .data-source {
+  margin-top: 10px;
+}
+
+.dark-mode footer .data-source a {
+  color: #eee;
+  text-decoration: underline;
+}
 /*# sourceMappingURL=style6.css.map */
